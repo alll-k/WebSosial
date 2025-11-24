@@ -1,18 +1,22 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\MahasiswaController;
+use App\Models\Berita;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/', [BeritaController::class, 'berita']);
 
-Route::get('/', function () {
-    return view('home');
+Route::get('/jadwal', function () {
+    return view('jadwal');
 });
+
+Route::get('/program', function () {
+    return view('program');
+});
+
+Route::get('/tentang', function () {
+    return view('tentang');
+});
+
+Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
