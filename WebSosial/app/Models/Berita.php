@@ -11,7 +11,7 @@ class Berita extends Model
         [
         "judul" => "Gempa Bumi 2,3 SR Melanda Solo Raya",
         "slug" => "gempa-bumi-2,3-sr-melanda-solo-raya",
-        "penulis" => "bmkg",
+        "penulis" => "BMKG",
         "konten" => "Gempa bermagnitudo 2,3 SR mengguncang Solo Raya pada Senin pagi. 
         Relawan kami telah turun untuk pengecekan dan mengumpulkan data masyarakat."
         ],

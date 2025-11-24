@@ -34,22 +34,25 @@
         </div>
 
     </div>
-</section><br>
+</section><br><br>
 
 <section id="judul" class="layanan">
-  <div class="scroll">
-  <h1 style="text-align: center">Berita Terkini Beserta Tanggapan Kami</h1>
-      @foreach($beritas as $berita)
-        <a href="/berita/{{ $berita ['slug'] }}">
-        <div class="kolom">
-        <h2>{{ $berita['judul'] }}</h2>
-        <h3>{{ $berita['penulis'] }}</h3>
-        </div>
-        </a>
-        <br>
-      @endforeach
-    </div>
 
+    <button class="zoom-btn" onclick="openZoomBerita()">🔍 Perbesar</button>
+
+    <div id="beritaContainer" class="scroll">
+        <h1 style="text-align: center">Berita Terkini Beserta Tanggapan Kami</h1>
+
+        @foreach($beritas as $berita)
+            <a href="/berita/{{ $berita['slug'] }}">
+                <div class="kolom">
+                    <h2>{{ $berita['judul'] }}</h2>
+                    <h3>{{ $berita['penulis'] }}</h3>
+                </div>
+            </a>
+            <br>
+        @endforeach
+    </div>
 </section>
 
 <section class="kontak">

@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <title>@yield('title', 'Website Relawan')</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Google -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0; padding: 0;
-        background: #eef5f8; /* biru sosial lembut */
+
+        background: url('https://images.unsplash.com/photo-1526256262350-7da7584cf5eb?auto=format&fit=crop&w=1600&q=80')
+                    no-repeat center center fixed;
+        background-size: cover;
+
+        background-blend-mode: overlay;
+        background-color: rgba(240, 248, 255, 0.87);
+        
         color: #333;
     }
 
-    /* Navigasi sosial */
     nav {
-        background: linear-gradient(90deg, #1e88e5, #00acc1); /* biru → toska sosial */
+        background: linear-gradient(90deg, #1e88e5, #00acc1);
         padding: 14px 30px;
         display: flex;
         justify-content: center;
@@ -40,7 +44,7 @@
         transition: 0.3s;
     }
     nav a:hover {
-        color: #ffeb3b; /* kuning cerah untuk kesan ramah */
+        color: #ffeb3b; 
     }
     nav a.active::after {
         content: "";
@@ -53,20 +57,19 @@
         border-radius: 2px;
     }
 
-    /* Konten */
     .content {
         min-height: 70vh;
         padding: 40px 20px;
     }
 
-    /* Hero sosial */
     .hero {
+        width: 100%;
         text-align: center;
         padding: 60px 20px;
-        background: linear-gradient(135deg, #0288d1, #26c6da); /* lembut dan sosial */
+        background: linear-gradient(135deg, #0288d1, #26c6da); 
         border-radius: 15px;
         color: #fff;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         box-shadow: 0 6px 15px rgba(0,0,0,0.1);
     }
     .hero h1 {
@@ -90,7 +93,7 @@
         background: #fff;
         color: #0288d1;
         font-weight: bold;
-        border-radius: 30px; /* membulat untuk kesan sosial & ramah */
+        border-radius: 30px;
         text-decoration: none;
         transition: 0.3s;
         box-shadow: 0 4px 8px rgba(255,255,255,0.25);
@@ -100,7 +103,6 @@
         color: #000;
     }
 
-    /* Section Layanan */
     #layanan h2, .tentang h2, .kontak h2 {
         text-align: center;
         font-size: 30px;
@@ -167,6 +169,7 @@
     padding: 35px 20px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    transition: all 0.35s ease;
 }
 
 .kolom h2{
@@ -175,7 +178,7 @@
     margin: auto;
     font-size: 30px;
     line-height: 1.6;
-    color: #0277bd; /* 💠 Lebih gelap untuk teks */
+    color: #0277bd; 
     font-weight: 500;
 }
 
@@ -185,7 +188,7 @@
     margin: auto;
     font-size: 25px;
     line-height: 1.6;
-    color: #00acc1; /* 💠 Lebih gelap untuk teks */
+    color: #00acc1; 
     font-weight: 500;
 }
 
@@ -195,7 +198,7 @@
     margin: auto;
     font-size: 17px;
     line-height: 1.6;
-    color: #222; /* 💠 Lebih gelap untuk teks */
+    color: #222; 
     font-weight: 500;
 }
 
@@ -218,10 +221,10 @@
 }
 
 .scroll h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+    font-size: 42px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 .kontak {
     background: #ffffff;
@@ -229,7 +232,6 @@
     padding: 35px 20px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-    border-left: 6px solid #00796b; /* warna sedikit berbeda agar lebih hidup */
 }
 
 .kontak p {
@@ -238,9 +240,8 @@
     margin: auto;
     font-size: 17px;
     line-height: 1.6;
-    color: #555; /* warna normal */
+    color: #555; 
 }
-
 
     .kontak a.btn-primary {
         text-align: center;
@@ -261,7 +262,41 @@
         color: #000;
     }
 
-    /* Footer */
+    #zoomBeritaPanel {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(5px);
+        padding: 30px;
+        overflow-y: auto;
+        z-index: 9999;
+    }
+
+    #zoomBeritaContent {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 900px;
+        margin: auto;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: red;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+
     footer {
         background: #0288d1;
         text-align: center;
@@ -274,5 +309,25 @@
     <div class="content">
         @yield('konten')
     </div> 
+
+    <div id="zoomBeritaPanel">
+        <button class="close-btn" onclick="closeZoomBerita()">Tutup X</button>
+        <div id="zoomBeritaContent"></div>
+    </div>
+
+    <script>
+    function openZoomBerita() {
+        // Ambil isi berita lengkap
+        let beritaHTML = document.getElementById("beritaContainer").innerHTML;
+
+        document.getElementById("zoomBeritaContent").innerHTML = beritaHTML;
+        document.getElementById("zoomBeritaPanel").style.display = "block";
+    }
+
+    function closeZoomBerita() {
+        document.getElementById("zoomBeritaPanel").style.display = "none";
+    }
+    </script>
+    
 </body>
 </html>
