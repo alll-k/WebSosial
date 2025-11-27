@@ -1,24 +1,20 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KegiatanController; // ← TEMPATKAN DI SINI
-// ROUTE HOME
-Route::get('/', function () {
-    return view('home', [
-        "title" => "Home"
-    ]);
+
+Route::get('/', [BeritaController::class, 'berita']);
+
+Route::get('/jadwal', function () {
+    return view('jadwal');
 });
 
-// ROUTE PROFILE
-Route::get('/profile', function () {
-    return view('profile', [
-        "title" => "Profile"
-    ]);
+Route::get('/program', function () {
+    return view('program');
 });
 
-// =====================================
-// ROUTE KEGIATAN (TAMBAH DI BAGIAN INI)
-// =====================================
-Route::get('/kegiatan', [KegiatanController::class, 'index']);
-Route::get('/kegiatan/tambah', [KegiatanController::class, 'create']);
-Route::post('/kegiatan/store', [KegiatanController::class, 'store']);
+Route::get('/tentang', function () {
+    return view('tentang');
+});
+
+Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
