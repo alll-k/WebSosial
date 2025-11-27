@@ -210,7 +210,7 @@
 .scroll {
     text-align: center;
     padding: 60px 20px;
-    background: linear-gradient(135deg, #0288d1, #26c6da); /
+    background: linear-gradient(135deg, #0288d1, #26c6da); 
     border-radius: 15px;
     color: #fff;
     margin-bottom: 40px;
