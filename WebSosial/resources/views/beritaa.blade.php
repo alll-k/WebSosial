@@ -27,13 +27,11 @@
     <article>
 
         @if($new_tanggapan)
-            {{-- Jika tanggapan dipilih --}}
             <h1>{{ $new_tanggapan["tanggapan"] }}</h1>
             <h3>{{ $new_tanggapan["penuliss"] }}</h3>
             <p>{{ $new_tanggapan["isi"] }}</p>
 
         @else
-            {{-- Jika tidak ada tanggapan --}}
             <p>Tidak ada tanggapan yang dipilih.</p>
         @endif
 
@@ -41,11 +39,6 @@
 </div>
 
 
-
-{{-- =======================
-    LIST TANGGAPAN (opsional)
-    Jika ingin menampilkan daftar tanggapan
-======================= --}}
 @if(count($tanggapans) > 0)
 <div class="hero" style="margin-top: 30px">
     <h2>Daftar Tanggapan Lain</h2>
@@ -60,14 +53,7 @@
     </ul>
 </div>
 @endif
-
-
-
-{{-- =======================
-    TOMBOL KEMBALI
-======================= --}}
-<div class="btn" style="text-align:center; margin-top: 40px;">
-    <a href ="{{ url('/') }}">Kembali</a>
-</div>
-
+<center>
+    <a href ="{{ url('/') }}" class="tombol" style="center">Kembali</a>
+</center>
 @endsection
