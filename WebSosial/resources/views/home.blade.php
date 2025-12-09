@@ -5,7 +5,7 @@
     <div class="hero-text">
         <h1>Selamat Datang di <span>Portal Sosial Kami</span></h1>
         <p>
-            Situs resmi yang berfokus pada kegiatan sosial, pelayanan masyarakat, 
+            Situs resmi yang berfokus pada kegiatan sosial, pelayanan masyarakat,
             serta informasi penting seputar program kemanusiaan dan pengembangan komunitas.
         </p>
         <a href="{{ url('/tentang') }}" class="btn" class="{{ request()->is('tentang') ? 'active' : '' }}">Tentang Kami</a>
@@ -99,7 +99,7 @@
     <h2>Hubungi Kami</h2>
     <p style="text-align: center; max-width: 700px; margin: auto;">
         Punya pertanyaan, saran, ingin berdonasi, membutuhkan layanan konsultasi masyarakat,
-        atau ingin bekerja sama dalam program sosial?  
+        atau ingin bekerja sama dalam program sosial?
         Silakan hubungi kami melalui WhatsApp untuk informasi dan penjadwalan layanan.
     </p>
 

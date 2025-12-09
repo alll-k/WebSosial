@@ -23,4 +23,9 @@ Route::get('/tentang', function () {
 
 Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
 
+<<<<<<< HEAD
 Route::get('/tanggapan/{tanggapan}', [TanggapanController::class, 'tampiltanggapan']);
+=======
+Route::get('/berita', [BeritaController::class, 'index']);
+Route::get('/berita/{slug}', [BeritaController::class, 'show']);
+>>>>>>> ac318de (tentang kami)
