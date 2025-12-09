@@ -1,6 +1,4 @@
 @extends('layout.style')
-
-<<<<<<< HEAD
 @section('konten')
 
 <div class="container mt-5 mb-5">
@@ -39,7 +37,7 @@
         </div>
 
         <div class="col-md-6 text-center mt-4 mt-md-0">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=60" 
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=900&q=60"
                 class="img-fluid rounded shadow" alt="Relawan Kemanusiaan">
         </div>
     </div>
@@ -51,7 +49,7 @@
 
         <h3 class="fw-bold mt-3">Visi</h3>
         <p class="fs-5">
-            Menjadi platform sosial terpercaya yang memperkuat solidaritas, 
+            Menjadi platform sosial terpercaya yang memperkuat solidaritas,
             kepedulian, dan aksi kemanusiaan.
         </p>
 
