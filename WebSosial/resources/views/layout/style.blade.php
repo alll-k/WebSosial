@@ -86,7 +86,18 @@
         margin-left: auto;
         margin-right: auto;
     }
-
+    .tombol {
+            display: inline-block;
+           background: white;
+           color: #0077b6;
+           padding: 14px 32px;
+           font-size: 18px;
+           font-weight: bold;
+           border-radius: 50px;
+           text-decoration: none;
+           transition: 0.3s ease;
+           box-shadow: 0 4px 12px rgba(255,255,255,0.3);
+    }
     .hero a.btn {
         display: inline-block;
         padding: 12px 24px;
@@ -163,171 +174,171 @@
         color: #000;
     }
 
-.kolom {
-    background: #ffffff;
-    margin-top: 40px;
-    padding: 35px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-    transition: all 0.35s ease;
-}
-
-.kolom h2{
-    text-align: center;
-    max-width: 750px;
-    margin: auto;
-    font-size: 30px;
-    line-height: 1.6;
-    color: #0277bd; 
-    font-weight: 500;
-}
-
-.kolom h3 {
-    text-align: center;
-    max-width: 750px;
-    margin: auto;
-    font-size: 25px;
-    line-height: 1.6;
-    color: #00acc1; 
-    font-weight: 500;
-}
-
-.kolom p {
-    text-align: center;
-    max-width: 750px;
-    margin: auto;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #222; 
-    font-weight: 500;
-}
-
- .kolom:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-}
-
-.scroll {
-    text-align: center;
-    padding: 60px 20px;
-    background: linear-gradient(135deg, #0288d1, #26c6da); 
-    border-radius: 15px;
-    color: #fff;
-    margin-bottom: 40px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    max-height: 600px;    
-    overflow-y: auto;  
-    padding-right: 10px;
-}
-
-.scroll h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-.kontak {
-    background: #ffffff;
-    margin-top: 40px;
-    padding: 35px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-}
-
-.kontak p {
-    text-align: center;
-    max-width: 750px;
-    margin: auto;
-    font-size: 17px;
-    line-height: 1.6;
-    color: #555; 
-}
-
-    .kontak a.btn-primary {
-        text-align: center;
-        display: inline-block;
-        margin-top: 15px;
-        padding: 12px 26px;
-        background: #0288d1;
-        color: white;
-        text-decoration: none;
-        border-radius: 30px;
-        font-weight: 600;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    .kontak a.btn-primary:hover {
-        background: #ffeb3b;
-        color: #000;
-    }
-
-    #zoomBeritaPanel {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: rgba(0,0,0,0.75);
-        backdrop-filter: blur(5px);
-        padding: 30px;
-        overflow-y: auto;
-        z-index: 9999;
-    }
-
-    #zoomBeritaContent {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .close-btn {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        background: red;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-
-
-    footer {
-        background: #0288d1;
-        text-align: center;
-        padding: 15px;
-        font-size: 14px;
-        color: #fff;
+    .kolom {
+        background: #ffffff;
         margin-top: 40px;
-    }
-</style>
-    <div class="content">
-        @yield('konten')
-    </div> 
-
-    <div id="zoomBeritaPanel">
-        <button class="close-btn" onclick="closeZoomBerita()">Tutup X</button>
-        <div id="zoomBeritaContent"></div>
-    </div>
-
-    <script>
-    function openZoomBerita() {
-        // Ambil isi berita lengkap
-        let beritaHTML = document.getElementById("beritaContainer").innerHTML;
-
-        document.getElementById("zoomBeritaContent").innerHTML = beritaHTML;
-        document.getElementById("zoomBeritaPanel").style.display = "block";
+        padding: 35px 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        transition: all 0.35s ease;
     }
 
-    function closeZoomBerita() {
-        document.getElementById("zoomBeritaPanel").style.display = "none";
+    .kolom h2{
+        text-align: center;
+        max-width: 750px;
+        margin: auto;
+        font-size: 30px;
+        line-height: 1.6;
+        color: #0277bd; 
+        font-weight: 500;
     }
-    </script>
-    
-</body>
+
+    .kolom h3 {
+        text-align: center;
+        max-width: 750px;
+        margin: auto;
+        font-size: 25px;
+        line-height: 1.6;
+        color: #00acc1; 
+        font-weight: 500;
+    }
+
+    .kolom p {
+        text-align: center;
+        max-width: 750px;
+        margin: auto;
+        font-size: 17px;
+        line-height: 1.6;
+        color: #222; 
+        font-weight: 500;
+    }
+
+    .kolom:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .scroll {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #0288d1, #26c6da); 
+        border-radius: 15px;
+        color: #fff;
+        margin-bottom: 40px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        max-height: 600px;    
+        overflow-y: auto;  
+        padding-right: 10px;
+    }
+
+    .scroll h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    .kontak {
+        background: #ffffff;
+        margin-top: 40px;
+        padding: 35px 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+
+    .kontak p {
+        text-align: center;
+        max-width: 750px;
+        margin: auto;
+        font-size: 17px;
+        line-height: 1.6;
+        color: #555; 
+    }
+
+        .kontak a.btn-primary {
+            text-align: center;
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 26px;
+            background: #0288d1;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .kontak a.btn-primary:hover {
+            background: #ffeb3b;
+            color: #000;
+        }
+
+        #zoomBeritaPanel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(5px);
+            padding: 30px;
+            overflow-y: auto;
+            z-index: 9999;
+        }
+
+        #zoomBeritaContent {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+
+        footer {
+            background: #0288d1;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            color: #fff;
+            margin-top: 40px;
+        }
+    </style>
+        <div class="content">
+            @yield('konten')
+        </div> 
+
+        <div id="zoomBeritaPanel">
+            <button class="close-btn" onclick="closeZoomBerita()">Tutup X</button>
+            <div id="zoomBeritaContent"></div>
+        </div>
+
+        <script>
+        function openZoomBerita() {
+            // Ambil isi berita lengkap
+            let beritaHTML = document.getElementById("beritaContainer").innerHTML;
+
+            document.getElementById("zoomBeritaContent").innerHTML = beritaHTML;
+            document.getElementById("zoomBeritaPanel").style.display = "block";
+        }
+
+        function closeZoomBerita() {
+            document.getElementById("zoomBeritaPanel").style.display = "none";
+        }
+        </script>
+        
+    </body>
 </html>

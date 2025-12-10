@@ -12,16 +12,16 @@ class Berita extends Model
         "judul" => "Gempa Bumi 2,3 SR Melanda Solo Raya",
         "slug" => "gempa-bumi-2,3-sr-melanda-solo-raya",
         "penulis" => "BMKG",
-        "konten" => "Gempa bermagnitudo 2,3 SR mengguncang Solo Raya pada Senin pagi. 
+        "konten" => "Gempa bermagnitudo 2,3 SR mengguncang Solo Raya pada Senin pagi.
         Relawan kami telah turun untuk pengecekan dan mengumpulkan data masyarakat."
         ],
-        
+
         [
         "judul" => "Banjir Cisurupan Garut hari ini, Bupati Garut: bangunan pemicu banjir harus dibongkar",
         "slug" => "banjir-cisurupan-garut-hari-ini,-bupati-garut:-bangunan-pemicu-banjir-harus-dibongkar",
         "penulis" => "ANTARA JABAR",
-        "konten" => "Bupati Garut Abdusy Syakur Amin menyatakan bangunan yang berdiri menghalangi saluran air 
-        dan menjadi pemicu terjadinya banjir di Kecamatan Cisurupan, Kabupaten Garut, Jawa Barat harus dibongkar 
+        "konten" => "Bupati Garut Abdusy Syakur Amin menyatakan bangunan yang berdiri menghalangi saluran air
+        dan menjadi pemicu terjadinya banjir di Kecamatan Cisurupan, Kabupaten Garut, Jawa Barat harus dibongkar
         agar tidak lagi banjir akibat luapan dari saluran air saat musim hujan."
         ],
 

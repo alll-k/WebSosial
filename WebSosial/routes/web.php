@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\TanggapanController;
+use App\Http\Controllers\MahasiswaController;
+use App\Models\Berita;
+use App\Models\Tanggapan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BeritaController::class, 'berita']);
