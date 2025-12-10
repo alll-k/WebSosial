@@ -957,5 +957,4 @@
     }
 </style>
 
->>>>>>> ac318de (tentang kami)
 @endsection
