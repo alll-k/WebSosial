@@ -18,3 +18,11 @@ Route::get('/tentang', function () {
 });
 
 Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
+
+Route::get('/daftar-relawan', function () {
+    return view('daftar-relawan');
+});
+
+Route::post('/daftar-relawan/kirim', function () {
+    return redirect('/daftar-relawan')->with('success', 'Pendaftaran berhasil!');
+});
