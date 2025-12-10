@@ -24,6 +24,7 @@
         <h2 class="fw-bold text-center mb-3">Formulir Pendaftaran Relawan</h2>
         <p class="text-center text-muted mb-4">Isi data diri Anda untuk bergabung menjadi relawan.</p>
 
+        {{-- FORM PENDAFTARAN --}}
         <form action="/daftar-relawan/kirim" method="POST">
             @csrf
 
@@ -66,16 +67,21 @@
 
 {{-- MODAL POP-UP BERHASIL --}}
 @if(session('success'))
-<div class="modal fade show" id="successModal" tabindex="-1" style="display:block; background:rgba(0,0,0,0.5);" aria-modal="true" role="dialog">
+<div class="modal fade show" id="successModal" tabindex="-1"
+     style="display:block; background:rgba(0,0,0,0.5);" aria-modal="true" role="dialog">
+
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content shadow">
+
             <div class="modal-header bg-success text-white">
                 <h5 class="modal-title">Berhasil!</h5>
             </div>
+
             <div class="modal-body text-center">
                 <p class="fw-semibold mb-3">{{ session('success') }}</p>
                 <button class="btn btn-success w-100" onclick="closeModal()">OK</button>
             </div>
+
         </div>
     </div>
 </div>
