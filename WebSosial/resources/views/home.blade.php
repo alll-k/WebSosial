@@ -140,7 +140,7 @@
         Kehadiranmu sangat berarti bagi masyarakat yang membutuhkan bantuan.
     </p>
 
-    <a href="{{/daftar"
+    <a href="{{ url('/daftar'}}"
        style="
             display: inline-block;
             background: white;
