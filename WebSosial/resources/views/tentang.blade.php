@@ -67,7 +67,7 @@
 =======
 @section ('konten')
 
-<!-- HERO SECTION -->
+
 <div class="hero-tentang">
     <div class="hero-content">
         <h1>Tentang Kami</h1>
@@ -75,7 +75,7 @@
     </div>
 </div>
 
-<!-- INTRO SECTION -->
+
 <section class="intro section-padding">
     <div class="container">
         <div class="intro-content">
@@ -94,7 +94,7 @@
     </div>
 </section>
 
-<!-- VISI MISI SECTION -->
+
 <section class="visi-misi section-padding bg-light">
     <div class="container">
         <h2 class="section-title">Visi & Misi Kami</h2>
@@ -129,7 +129,7 @@
     </div>
 </section>
 
-<!-- NILAI-NILAI SECTION -->
+
 <section class="values section-padding">
     <div class="container">
         <h2 class="section-title">Nilai-Nilai Inti Kami</h2>
@@ -175,7 +175,7 @@
     </div>
 </section>
 
-<!-- SEJARAH SECTION -->
+
 <section class="sejarah section-padding bg-light">
     <div class="container">
         <h2 class="section-title">Perjalanan Kami</h2>
@@ -276,7 +276,7 @@
     </div>
 </section>
 
-<!-- TIM SECTION -->
+
 <section class="team section-padding">
     <div class="container">
         <h2 class="section-title">Tim Kepemimpinan Kami</h2>
@@ -346,7 +346,7 @@
     </div>
 </section>
 
-<!-- ACHIEVEMENT SECTION -->
+
 <section class="achievement section-padding bg-light">
     <div class="container">
         <h2 class="section-title">Pencapaian & Pengakuan</h2>
@@ -396,7 +396,7 @@
     </div>
 </section>
 
-<!-- FAQ SECTION -->
+
 <section class="faq section-padding">
     <div class="container">
         <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
@@ -453,7 +453,7 @@
     </div>
 </section>
 
-<!-- CTA SECTION -->
+
 <section class="cta section-padding">
     <div class="container">
         <div class="cta-content">
@@ -612,7 +612,7 @@
         font-size: 0.95rem;
     }
 
-    /* VALUES */
+   
     .values-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -762,7 +762,7 @@
         line-height: 1.6;
     }
 
-    /* ACHIEVEMENT */
+   
     .achievement-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -796,7 +796,7 @@
         font-size: 0.95rem;
     }
 
-    /* AWARDS */
+    
     .awards-section {
         background: white;
         padding: 30px;
@@ -826,7 +826,7 @@
         border-bottom: none;
     }
 
-    /* FAQ */
+    
     .faq-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -858,7 +858,7 @@
         line-height: 1.7;
     }
 
-    /* CTA */
+    
     .cta {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -888,7 +888,7 @@
         flex-wrap: wrap;
     }
 
-    /* BUTTONS */
+    
     .btn {
         display: inline-block;
         padding: 12px 28px;
@@ -922,7 +922,7 @@
         color: #667eea;
     }
 
-    /* RESPONSIVE */
+    
     @media (max-width: 768px) {
         .hero-content h1 {
             font-size: 1.8rem;
