@@ -68,7 +68,7 @@
 {{-- MODAL POP-UP BERHASIL --}}
 @if(session('success'))
 <div class="modal fade show" id="successModal" tabindex="-1"
-     style="display:block; background:rgba(0,0,0,0.5);" aria-modal="true" role="dialog">
+    style="display:block; background:rgba(0,0,0,0.5);" aria-modal="true" role="dialog">
 
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content shadow">

@@ -18,10 +18,29 @@
     <h3 class="mt-4">Fokus Program:</h3>
 
     <ul>
-        <li><strong>Kegiatan sosial & pelayanan masyarakat</strong></li>
-        <li><strong>Program kemanusiaan dan bantuan darurat</strong></li>
-        <li><strong>Pemberdayaan komunitas dan pelatihan keterampilan</strong></li>
-        <li><strong>Relawan pendidikan dan pendampingan generasi muda</strong></li>
+        <li>
+            <strong>Kegiatan sosial & pelayanan masyarakat</strong> — 
+            Meliputi aksi bersih lingkungan, pembagian sembako, pemeriksaan kesehatan gratis, 
+            serta kegiatan yang bertujuan meningkatkan kesejahteraan masyarakat secara langsung.
+        </li>
+
+        <li>
+            <strong>Program kemanusiaan dan bantuan darurat</strong> — 
+            Relawan terlibat dalam penanganan bencana, distribusi bantuan, evakuasi, dan dukungan 
+            untuk masyarakat terdampak bencana alam atau kondisi darurat lainnya.
+        </li>
+
+        <li>
+            <strong>Pemberdayaan komunitas dan pelatihan keterampilan</strong> — 
+            Program ini mendukung masyarakat agar lebih mandiri melalui pelatihan keterampilan, 
+            seperti pengembangan UMKM, kerajinan tangan, literasi digital, dan peningkatan kapasitas lainnya.
+        </li>
+
+        <li>
+            <strong>Relawan pendidikan dan pendampingan generasi muda</strong> — 
+            Mengajar anak-anak, memberikan bimbingan belajar, kegiatan motivasi, serta pendampingan 
+            bagi remaja untuk meningkatkan kualitas pendidikan dan karakter.
+        </li>
     </ul>
 
     <div class="mt-4 p-4 bg-light rounded shadow-sm">
