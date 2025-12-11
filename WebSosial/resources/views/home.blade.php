@@ -181,18 +181,4 @@
     
     <a href="#" class="detail-link">Lihat Detail →</a>
 
-<section class="kontak">
-    <h2>Hubungi Kami</h2>
-    <p style="text-align: center; max-width: 700px; margin: auto;">
-        Punya pertanyaan, saran, ingin berdonasi, membutuhkan layanan konsultasi masyarakat,
-        atau ingin bekerja sama dalam program sosial?
-        Silakan hubungi kami melalui WhatsApp untuk informasi dan penjadwalan layanan.
-    </p>
-
-<center style="margin-top: 20px;">
-    <a href="https://wa.me/628xxx" class="btn-primary">Kontak WhatsApp</a>
-</center>
-
-</section>
-
 @endsection
