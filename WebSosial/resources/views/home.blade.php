@@ -71,11 +71,11 @@
         line-height: 1.6;
         margin-bottom: 30px;
     ">
-        Dukung kegiatan sosial kami dan jadilah bagian dari perubahan.  
+        Dukung kegiatan sosial kami dan jadilah bagian dari perubahan.
         Kehadiranmu sangat berarti bagi masyarakat yang membutuhkan bantuan.
     </p>
 
-    <a href="/jadwal"
+    <a href="/daftar-relawan"
        style="
            display: inline-block;
            background: white;
