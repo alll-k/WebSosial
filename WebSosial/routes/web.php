@@ -21,6 +21,14 @@ Route::get('/tentang', function () {
     return view('tentang');
 });
 
+Route::get('/prokegi', function () {
+    return view('prokegi');
+});
+
+Route::get('/daftar', function () {
+    return view('daftar');
+});
+
 Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
 
 Route::get('/tanggapan/{tanggapan}', [TanggapanController::class, 'tampiltanggapan']);
