@@ -17,7 +17,8 @@
 
     <div class="cards">
 
-        <div class="card" style="border-left: 5px solid #ff6b6b; transition: transform 0.3s ease;">
+        <!-- Card 1 -->
+        <div class="card" style="border-left: 5px solid #ff6b6b; transition: transform 0.3s ease; margin-bottom: 20px;">
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
                 <span style="font-size: 2rem; margin-right: 10px;">🎁</span>
                 <h3 style="margin: 0;">Bakti Sosial Pembagian Sembako</h3>
@@ -27,12 +28,13 @@
                 <strong>⏰ Waktu:</strong> 08.00 – 12.00 WIB <br>
                 <strong>📍 Lokasi:</strong> Desa Mekarsari
             </p>
-            <a href="https://wa.me/628xxx?text=Halo%20saya%20ingin%20ikut%20kegiatan%20Baksos" class="btn-secondary" style="display: inline-block; margin-top: 10px;">
+            <a href="https://wa.me/628xxx?text=Halo%20saya%20ingin%20ikut%20kegiatan%20Bakti%20Sosial" class="btn-secondary" style="display: inline-block; margin-top: 10px;">
                 Daftar via WhatsApp
             </a>
         </div>
 
-        <div class="card" style="border-left: 5px solid #4ecdc4; transition: transform 0.3s ease;">
+        <!-- Card 2 -->
+        <div class="card" style="border-left: 5px solid #4ecdc4; transition: transform 0.3s ease; margin-bottom: 20px;">
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
                 <span style="font-size: 2rem; margin-right: 10px;">🏥</span>
                 <h3 style="margin: 0;">Pemeriksaan Kesehatan Gratis</h3>
@@ -47,10 +49,11 @@
             </a>
         </div>
 
-        <div class="card" style="border-left: 5px solid #95e1d3; transition: transform 0.3s ease;">
+        <!-- Card 3 -->
+        <div class="card" style="border-left: 5px solid #95e1d3; transition: transform 0.3s ease; margin-bottom: 20px;">
             <div style="display: flex; align-items: center; margin-bottom: 10px;">
                 <span style="font-size: 2rem; margin-right: 10px;">📚</span>
-                <h3 style="margin: 0;">Pengajaran Anak-anak</h3>
+                <h3 style="margin: 0;">Pengajaran Anak-anak (Trauma Healing)</h3>
             </div>
             <p>
                 <strong>📅 Tanggal:</strong> 20 Desember 2025 <br>
