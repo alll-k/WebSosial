@@ -1,6 +1,16 @@
 @extends ('layout.style')
 
 @section ('konten')
+<div class="hero">
+    <div class="hero-text">
+        <h1>Selamat Datang di <span>Portal Sosial Kami</span></h1>
+        <p>
+            Situs resmi yang berfokus pada kegiatan sosial, pelayanan masyarakat,
+            serta informasi penting seputar program kemanusiaan dan pengembangan komunitas.
+        </p>
+        <a href="{{ url('/tentang') }}" class="btn" class="{{ request()->is('tentang') ? 'active' : '' }}">Tentang Kami</a>
+    </div>
+</div>
 
 <body>
 
@@ -126,11 +136,11 @@
         line-height: 1.6;
         margin-bottom: 30px;
     ">
-        Dukung kegiatan sosial kami dan jadilah bagian dari perubahan.  
+        Dukung kegiatan sosial kami dan jadilah bagian dari perubahan.
         Kehadiranmu sangat berarti bagi masyarakat yang membutuhkan bantuan.
     </p>
 
-    <a href="/daftar"
+    <a href="{{/daftar"
        style="
             display: inline-block;
             background: white;
@@ -181,6 +191,19 @@
     </div>
     
     <a href="#" class="detail-link">Lihat Detail →</a>
+
+<section class="kontak">
+    <h2>Hubungi Kami</h2>
+    <p style="text-align: center; max-width: 700px; margin: auto;">
+        Punya pertanyaan, saran, ingin berdonasi, membutuhkan layanan konsultasi masyarakat,
+        atau ingin bekerja sama dalam program sosial?
+        Silakan hubungi kami melalui WhatsApp untuk informasi dan penjadwalan layanan.
+    </p>
+
+<center style="margin-top: 20px;">
+    <a href="https://wa.me/628xxx" class="btn-primary">Kontak WhatsApp</a>
+</center>
+
 </section>
 
 @endsection
