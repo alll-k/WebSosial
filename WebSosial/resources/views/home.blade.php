@@ -7,7 +7,7 @@
         <div class="slider-wrapper">
             
             <div class="slide current-slide" data-index="1">
-                <img src="https://images.unsplash.com/photo-1549416569-42b47594d4d1?auto=format&fit=crop&q=80&w=2070" alt="Mahalkan Rokok"> 
+                <img src="{{ asset('images/gambar_1.jpg') }}" alt="Mahalkan Rokok"> 
                 <div class="overlay"></div>
                 <div class="slide-content">
                     <h1>Mahalkan Rokok! Selamatkan Nyawa 268.000 Orang Setiap Tahunnya</h1>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="slide" data-index="2">
-                <img src="https://images.unsplash.com/photo-1532938911079-15075c32443c?auto=format&fit=crop&q=80&w=2070" alt="Sistem Kesehatan"> 
+                <img src="{{ asset('images/gambar 2.jpg') }}" alt="Sistem Kesehatan"> 
                 <div class="overlay"></div>
                 <div class="slide-content">
                     <h1>Penguatan Sistem Kesehatan Primer</h1>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="slide" data-index="3">
-                <img src="https://images.unsplash.com/photo-1542810634-71277d595ae35?auto=format&fit=crop&q=80&w=2070" alt="Ibu dan Anak"> 
+                <img src="{{ asset('images/gambar 3.jpg') }}" alt="Ibu dan Anak"> 
                 <div class="overlay"></div>
                 <div class="slide-content">
                     <h1>Prioritas Kesehatan Ibu dan Anak</h1>
@@ -154,7 +154,7 @@
     
     <div class="mitra-logos">
         <div class="mitra-logo-item">
-            <img src="https://cisdi.org/wp-content/uploads/2021/08/Gavi_logo_web.png" alt="Gavi" loading="lazy">
+            <img src="https://cisdi.org/wp-content/uploads/2021/08/Gavi_logo_web.png" alt="Gavi">
         </div>
         <div class="mitra-logo-item">
             <img src="https://cisdi.org/wp-content/uploads/2021/08/Global-Fund.png" alt="The Global Fund" loading="lazy">
