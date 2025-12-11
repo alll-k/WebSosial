@@ -1,17 +1,6 @@
 @extends ('layout.style')
 
 @section ('konten')
-<div class="hero">
-    <div class="hero-text">
-        <h1>Selamat Datang di <span>Portal Sosial Kami</span></h1>
-        <p>
-            Situs resmi yang berfokus pada kegiatan sosial, pelayanan masyarakat,
-            serta informasi penting seputar program kemanusiaan dan pengembangan komunitas.
-        </p>
-        <a href="{{ url('/tentang') }}" class="btn" class="{{ request()->is('tentang') ? 'active' : '' }}">Tentang Kami</a>
-    </div>
-</div>
-
 <body>
 
     <section class="slider-container">
@@ -140,7 +129,7 @@
         Kehadiranmu sangat berarti bagi masyarakat yang membutuhkan bantuan.
     </p>
 
-    <a href="{{ url('/daftar'}}"
+    <a href="/daftar"
        style="
             display: inline-block;
             background: white;
