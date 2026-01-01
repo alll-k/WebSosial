@@ -842,14 +842,13 @@
             <ul>
                 <li><a href="{{ url('/tentang') }}">Tentang Kami</a></li>
                 <li><a href="{{ url('/prokegi') }}">Program dan Kegiatan Kami</a></li>
-                <li><a href="#">Riset & Publikasi ▾</a></li>
                 <li><a href="#">Bergabung dengan Kami</a></li>
                 <li><a href="#">Terbaru</a></li>
-                <li><a href="#">Event</a></li>
+                <li><a href="#">Volunteer Matching</a></li>
                 <li><a href="#">Hubungi Kami</a></li>
             </ul>
         </nav>
-        <button class="donasi-btn">#DukungKaderKesehatan</button>
+        <button class="donasi-btn"><a href>👤Profil</a></button>
     </header>
 
     <section class="newsletter-section">

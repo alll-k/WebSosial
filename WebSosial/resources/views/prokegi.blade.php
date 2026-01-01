@@ -3,7 +3,7 @@
 @section ('konten')
 <br><br><br>
 <section class="program-banner">
-    <img src="https://images.unsplash.com/photo-1571260899304-425ddd98144e?auto=format&fit=crop&q=80&w=2070" 
+    <img src="{{ asset('images/gambar 4.jpg') }}" 
          alt="Gambar Kegiatan Sosial Relawan" loading="lazy">
     <div class="banner-text">
         <h1>Program & Kegiatan Sosial Kami</h1>

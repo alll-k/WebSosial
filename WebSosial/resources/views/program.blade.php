@@ -1,7 +1,15 @@
 @extends('layout.style')
 
 @section('konten')
-
+<section class="program-banner">
+    <img src="{{ asset('images/gambar 4.jpg') }}" 
+         alt="Gambar Kegiatan Sosial Relawan" loading="lazy">
+    <div class="banner-text">
+        <h1>Program Kami</h1>
+        <p>Lihat berbagai inisiatif yang mengubah masyarakat.</p>
+    </div>
+    
+</section>
 <div class="container mt-5 mb-5">
 
     <div class="text-center mb-4">
