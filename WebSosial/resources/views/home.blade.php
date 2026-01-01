@@ -154,7 +154,7 @@
     
     <div class="mitra-logos">
         <div class="mitra-logo-item">
-            <img src="https://cisdi.org/wp-content/uploads/2021/08/Gavi_logo_web.png" alt="Gavi">
+            <img src="{{ asset('images/ti.jpg') }}" alt="Gavi">
         </div>
         <div class="mitra-logo-item">
             <img src="https://cisdi.org/wp-content/uploads/2021/08/Global-Fund.png" alt="The Global Fund" loading="lazy">
