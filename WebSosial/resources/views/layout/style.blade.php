@@ -12,18 +12,17 @@
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         margin: 0; padding: 0;
-        /* Hapus background fixed/cover dari body agar slider bisa mengisi penuh */
-        background-color: #f8f8f8; /* Ganti dengan warna solid ringan */
+        background-color: #f8f8f8;
         color: #333;
     }
 
     .program-banner {
     width: 100%;
-    height: 350px; /* Atur ketinggian banner */
-    margin-bottom: 40px; /* Jarak dari section di bawahnya */
+    height: 350px; 
+    margin-bottom: 40px; 
     overflow: hidden;
     position: relative;
-    border-radius: 15px; /* Beri sedikit sudut melengkung */
+    border-radius: 15px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -31,7 +30,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(85%); /* Sedikit gelap agar teks terlihat */
+    filter: brightness(85%); 
 }
 
 .banner-text {
@@ -50,63 +49,76 @@
     margin: 0;
 }
 
-    .cisdi-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 30px;
-        background-color: rgba(0, 0, 0, 0.7); 
-        position: absolute; 
-        width: 100%;
-        top: 0; /* Pastikan di paling atas */
-        z-index: 1000; 
-    }
+/* PERBAIKAN NAVIGASI: Hilangkan Jeda & Besarkan Logo */
+.cisdi-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px 30px !important;
+    background-color: rgba(0, 0, 0, 0.7) !important; /* Transparansi agar menyatu */
+    position: fixed !important; /* Fixed agar menempel di atas foto */
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 9999 !important;
+    backdrop-filter: blur(10px);
+}
 
-    .cisdi-header .logo {
-        font-size: 28px;
-        font-weight: bold;
-        color: white;
-    }
+.cisdi-header .logo {
+    font-size: 32px !important; /* Ukuran RELAWAN diperbesar */
+    font-weight: bold;
+    color: white;
+}
 
-    .cisdi-header .logo span {
-        color: #26c6da; /* Ganti dari orange ke Cyan */
-    }
+.cisdi-header .logo a {
+    text-decoration: none !important;
+    color: white !important;
+}
 
-    .cisdi-header nav ul {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-    }
+.cisdi-header .logo span {
+    color: #26c6da; 
+}
 
-    .cisdi-header nav ul li a {
-        text-decoration: none;
-        color: white;
-        padding: 10px 12px;
-        display: block;
-        font-size: 14px;
-        transition: color 0.3s;
-    }
+.cisdi-header nav ul {
+    list-style: none !important;
+    display: flex !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 15px !important;
+}
 
-    .cisdi-header nav ul li a:hover {
-        color: #26c6da; /* Ganti warna hover */
-    }
+.cisdi-header nav ul li a {
+    text-decoration: none !important;
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: color 0.3s;
+}
 
-    .donasi-btn {
-        background-color: #0288d1; 
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 3px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 14px;
-        white-space: nowrap;
-    }
+.cisdi-header nav ul li a:hover {
+    color: #26c6da !important;
+}
 
-    .donasi-btn:hover {
-        background-color: #00acc1; 
-    }
+.donasi-btn {
+    background-color: #0288d1; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.donasi-btn a {
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.donasi-btn:hover {
+    background-color: #00acc1; 
+}
 
     /* CAROUSEL/SLIDER STYLES */
     .slider-container {
@@ -115,6 +127,13 @@
         height: 100vh; 
         overflow: hidden; 
         margin-bottom: 0; 
+        margin-top: 0 !important; /* Memastikan tidak ada jeda atas */
+    }
+
+    /* PERBAIKAN JEDA: Konten wrapper tidak diberi margin-top agar foto masuk ke bawah nav */
+    .content-wrapper {
+        margin-top: 0 !important; 
+        padding: 0 !important;
     }
 
     .slider-wrapper {
@@ -246,7 +265,6 @@
     }
     
     .content {
-        /* Disesuaikan agar konten tidak terpotong header */
         min-height: 70vh;
         padding: 40px 20px;
         max-width: 1200px;
@@ -320,155 +338,80 @@
     }
 
    .cards {
-
         display: flex;
-
         justify-content: center;
-
         gap: 15px;
-
         flex-wrap: wrap;
-
     }
-
-
 
     .card {
-
         background: #fff;
-
         padding: 25px;
-
         width: 290px;
-
-        border-radius: 20px; /* bentuk sosial */
-
+        border-radius: 20px; 
         box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-
         text-align: center;
-
         transition: 0.3s;
-
         border: 2px solid #e0f7fa;
-
     }
-
-
 
     .card:hover {
-
         transform: translateY(-6px);
-
         box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-
     }
-
-
 
     .card h3 {
-
         color: #00838f;
-
         font-size: 22px;
-
         margin-bottom: 10px;
-
     }
-
-
 
     .card p {
-
         font-size: 15px;
-
         line-height: 1.5;
-
         color: #555;
-
     }
-
-
 
     .card .btn-secondary {
-
         margin-top: 15px;
-
         display: inline-block;
-
         padding: 10px 20px;
-
         background: #00acc1;
-
         color: #fff;
-
         border-radius: 25px;
-
         text-decoration: none;
-
         font-weight: 600;
-
         transition: 0.3s;
-
     }
  
-
         .kolom {
-
         background: #ffffff;
-
         margin-top: 40px;
-
         padding: 35px 20px;
-
         border-radius: 15px;
-
         box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-
         transition: all 0.35s ease;
-
     }
-
-
 
     .kolom h2{
-
         text-align: center;
-
         max-width: 750px;
-
         margin: auto;
-
         font-size: 30px;
-
         line-height: 1.6;
-
         color: #0277bd;
-
         font-weight: 500;
-
     }
-
-
 
     .kolom h3 {
-
         text-align: center;
-
         max-width: 750px;
-
         margin: auto;
-
         font-size: 25px;
-
         line-height: 1.6;
-
         color: #00acc1;
-
         font-weight: 500;
-
     }
-
-
 
     .kolom p {
         text-align: center;
@@ -480,19 +423,14 @@
         font-weight: 500;
     }
 
-
     .kolom:hover {
         transform: translateY(-6px);
         box-shadow: 0 6px 14px rgba(0,0,0,0.12);
     }
 
-
     .card .btn-secondary:hover {
-
         background: #ffe082;
-
         color: #000;
-
     }
 
     .scroll {
@@ -506,7 +444,7 @@
         max-height: 600px;    
         overflow-y: auto;  
         padding-right: 10px;
-        position: relative; /* Penting untuk zoom-btn */
+        position: relative; 
     }
 
     .zoom-btn {
@@ -535,7 +473,7 @@
 
 .mitra-section {
     padding: 60px 20px;
-    background-color: white; /* Latar putih untuk mitra */
+    background-color: white; 
     text-align: center;
 }
 
@@ -553,12 +491,12 @@
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
-    overflow-x: auto; /* Untuk simulasi geser horizontal */
+    overflow-x: auto; 
     padding: 10px 0;
 }
 
 .mitra-logo-item {
-    min-width: 150px; /* Lebar minimum logo */
+    min-width: 150px; 
     height: 80px;
     display: flex;
     justify-content: center;
@@ -571,19 +509,19 @@
 .mitra-logo-item img {
     max-width: 100%;
     max-height: 100%;
-    filter: grayscale(100%); /* Membuat logo grayscale (umum di situs CISDI) */
+    filter: grayscale(100%); 
     opacity: 0.6;
     transition: filter 0.3s, opacity 0.3s;
 }
 
 .mitra-logo-item:hover img {
-    filter: grayscale(0%); /* Warna penuh saat hover */
+    filter: grayscale(0%); 
     opacity: 1;
 }
 
 .detail-link {
     display: inline-block;
-    color: #0288d1; /* Warna Biru Aksi */
+    color: #0288d1; 
     text-decoration: none;
     font-weight: 600;
     margin-top: 30px;
@@ -592,8 +530,8 @@
 
 /* BERLANGGANAN NAWALA SECTION */
 .newsletter-section {
-    background-color: #7b1fa2; /* Warna ungu tua (diambil dari gambar) */
-    background-image: linear-gradient(135deg, #1e88e5 0%, #00acc1 100%); /* Ganti dengan gradient Biru/Cyan */
+    background-color: #7b1fa2; 
+    background-image: linear-gradient(135deg, #1e88e5 0%, #00acc1 100%); 
     color: white;
     padding: 50px 20px;
     text-align: left;
@@ -605,7 +543,7 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Responsif */
+    flex-wrap: wrap; 
 }
 
 .newsletter-text h3 {
@@ -628,7 +566,7 @@
 }
 
 .newsletter-form button {
-    background-color: #0288d1; /* Biru Aksi */
+    background-color: #0288d1; 
     color: white;
     border: none;
     padding: 12px 20px;
@@ -639,7 +577,7 @@
 }
 
 .newsletter-form button:hover {
-    background-color: #00acc1; /* Cyan Hover */
+    background-color: #00acc1; 
 }
 
 @media (max-width: 768px) {
@@ -661,14 +599,14 @@
 
 .expertise-section {
     padding: 60px 20px;
-    background-color: #f0f8ff; /* Warna latar sangat terang (Azure) */
+    background-color: #f0f8ff; 
     text-align: center;
 }
 
 .expertise-section h2 {
     font-size: 32px;
     font-weight: 700;
-    color: #0277bd; /* Warna Biru Tema Anda */
+    color: #0277bd; 
     text-transform: uppercase;
     margin-bottom: 50px;
     letter-spacing: 1px;
@@ -684,7 +622,7 @@
 }
 
 .expertise-card {
-    flex: 1 1 300px; /* Fleksibel, tapi lebar dasar 300px */
+    flex: 1 1 300px; 
     background: white;
     border-radius: 8px;
     overflow: hidden;
@@ -700,7 +638,7 @@
 
 .expertise-card img {
     width: 100%;
-    height: 200px; /* Tinggi tetap untuk gambar */
+    height: 200px; 
     object-fit: cover;
 }
 
@@ -711,9 +649,9 @@
 .expertise-text h3 {
     font-size: 20px;
     font-weight: 600;
-    color: #00acc1; /* Cyan Tema Anda */
+    color: #00acc1; 
     margin-bottom: 15px;
-    min-height: 50px; /* Memastikan tinggi judul seragam */
+    min-height: 50px; 
 }
 
 .expertise-text p {
@@ -724,60 +662,105 @@
 
 @media (max-width: 992px) {
     .expertise-card {
-        flex: 1 1 45%; /* Dua kolom di tablet */
+        flex: 1 1 45%; 
         margin-bottom: 20px;
     }
 }
 @media (max-width: 600px) {
     .expertise-card {
-        flex: 1 1 100%; /* Satu kolom di HP */
+        flex: 1 1 100%; 
     }
 }
 
     </style>
 </head>
+<body>
+
+<header class="cisdi-header">
+    <div class="logo">
+        <a href="{{ url('/') }}">RELAWAN<span>+</span></a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="{{ url('/tentang') }}">Tentang Kami</a></li>
+            <li><a href="{{ url('/prokegi') }}">Program dan Kegiatan Kami</a></li>
+            
+            {{-- 1. HANYA UNTUK TAMU (GUEST) --}}
+            @guest
+                <li><a href="{{ url('/') }}">Bergabung dengan Kami</a></li>
+            @endguest
+
+            {{-- 2. HANYA UNTUK ADMIN (ROLE 1) --}}
+            @auth
+                @if(Auth::user()->role == 1)
+                    <li><a href="{{ url('/admin/dashboard') }}" style="color: #ffeb3b; font-weight: bold;">🛠️ Panel Kendali</a></li>
+                @endif
+            @endauth
+
+            {{-- 3. HANYA UNTUK USER/RELAWAN (ROLE 0) --}}
+            @auth
+                @if(Auth::user()->role == 0)
+                    <li><a href="{{ url('/home') }}" style="color: #26c6da; font-weight: bold;">📊 Aktivitas Saya</a></li>
+                @endif
+            @endauth
+
+            <li><a href="#">Terbaru</a></li>
+            <li><a href="#">Hubungi Kami</a></li>
+        </ul>
+    </nav>
+
+    <div class="header-right" style="display: flex; align-items: center; gap: 15px;">
+        @auth
+            <span style="color: white; font-size: 14px; font-weight: 600;">👋 {{ Auth::user()->name }}</span>
+            
+            <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+                @csrf
+                <button type="submit" class="donasi-btn" style="background-color: #ff4444 !important; border: none; padding: 8px 15px; border-radius: 5px; color: white; cursor: pointer; font-weight: bold;">
+                    Keluar
+                </button>
+            </form>
+        @else
+            <button class="donasi-btn">
+                <a href="{{ url('/profil') }}" style="text-decoration: none; color: white; font-weight: bold;">LOGIN</a>
+            </button>
+        @endauth
+    </div>
+</header>
 
     <div class="content-wrapper"> 
         @yield('konten')
     </div>
 
-    <div id="zoomBeritaPanel">
-        <button class="close-btn" onclick="closeZoomBerita()">Tutup X</button>
+    <div id="zoomBeritaPanel" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; z-index:10001; border-radius:10px;">
         <div id="zoomBeritaContent"></div>
     </div>
 
     <script>
     function openZoomBerita() {
-        // Ambil isi berita lengkap
         let beritaHTML = document.getElementById("beritaContainer").innerHTML;
-
         document.getElementById("zoomBeritaContent").innerHTML = beritaHTML;
         document.getElementById("zoomBeritaPanel").style.display = "block";
     }
 
+    // Fungsi close tetap ada di script namun tombol pemicunya (X) sudah hilang dari visual
     function closeZoomBerita() {
         document.getElementById("zoomBeritaPanel").style.display = "none";
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-    // Memilih elemen-elemen penting
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const dots = document.querySelectorAll('.dot');
     
-    // Variabel status
     let currentSlideIndex = 0;
     const totalSlides = slides.length;
     let autoSlideInterval;
 
-    // Fungsi utama untuk menampilkan slide tertentu
     function showSlide(index) {
-        // Hapus kelas aktif dari semua slide dan dots
         slides.forEach(slide => slide.classList.remove('current-slide'));
         dots.forEach(dot => dot.classList.remove('active-dot'));
 
-        // Atur index agar berulang (looping)
         if (index >= totalSlides) {
             currentSlideIndex = 0;
         } else if (index < 0) {
@@ -786,28 +769,17 @@
             currentSlideIndex = index;
         }
 
-        // Tambahkan kelas aktif ke slide dan dot yang baru
         slides[currentSlideIndex].classList.add('current-slide');
         dots[currentSlideIndex].classList.add('active-dot');
     }
 
-    // Fungsi untuk menggeser ke slide berikutnya
     function nextSlide() {
         showSlide(currentSlideIndex + 1);
     }
 
-    // Event Listener untuk tombol Next/Prev
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoSlide(); // Reset timer saat pengguna berinteraksi
-    });
+    if(nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
+    if(prevBtn) prevBtn.addEventListener('click', () => { showSlide(currentSlideIndex - 1); resetAutoSlide(); });
 
-    prevBtn.addEventListener('click', () => {
-        showSlide(currentSlideIndex - 1);
-        resetAutoSlide(); // Reset timer saat pengguna berinteraksi
-    });
-
-    // Event Listener untuk Dots (indikator)
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             showSlide(index);
@@ -815,54 +787,34 @@
         });
     });
 
-    // Otomatis Geser (Auto Slide)
     function startAutoSlide() {
-        // Ganti slide setiap 5 detik (5000 ms)
         autoSlideInterval = setInterval(nextSlide, 5000); 
     }
 
-    // Menghentikan dan memulai kembali auto slide saat ada interaksi manual
     function resetAutoSlide() {
         clearInterval(autoSlideInterval);
         startAutoSlide();
     }
 
-    // Mulai auto slide saat halaman dimuat
     startAutoSlide();
-
-    // Tampilkan slide pertama saat inisialisasi
     showSlide(0); 
     });
     </script>
-    </body>
-
-        <header class="cisdi-header">
-        <div class="logo"><a href="{{ url ('/') }}">RELAWAN<span>+</span></a></div>
-        <nav>
-            <ul>
-                <li><a href="{{ url('/tentang') }}">Tentang Kami</a></li>
-                <li><a href="{{ url('/prokegi') }}">Program dan Kegiatan Kami</a></li>
-                <li><a href="#">Bergabung dengan Kami</a></li>
-                <li><a href="#">Terbaru</a></li>
-                <li><a href="#">Volunteer Matching</a></li>
-                <li><a href="#">Hubungi Kami</a></li>
-            </ul>
-        </nav>
-        <button class="donasi-btn"><a href>👤Profil</a></button>
-    </header>
 
     <section class="newsletter-section">
-    <div class="newsletter-content">
-        <div class="newsletter-text">
-            <h3>Ingin Mengetahui Informasi terbaru setiap hari?</h3>
-            <p>Dapatkan informasi terkini tentang isu kesehatan, pembangunan, dan relawan.</p>
+        <div class="newsletter-content">
+            <div class="newsletter-text">
+                <h3>Ingin Mengetahui Informasi terbaru setiap hari?</h3>
+                <p>Dapatkan informasi terkini tentang isu kesehatan, pembangunan, dan relawan.</p>
+            </div>
+            <div class="newsletter-form">
+                <form action="#" method="POST">
+                    <input type="email" name="email" placeholder="Masukkan email Anda" required>
+                    <button type="submit">Berlangganan</button>
+                </form>
+            </div>
         </div>
-        <div class="newsletter-form">
-            <form action="#" method="POST">
-                <input type="email" name="email" placeholder="Masukkan email Anda" required>
-                <button type="submit">Berlangganan</button>
-            </form>
-        </div>
-    </div>
-</section>
+    </section>
+
+</body>
 </html>

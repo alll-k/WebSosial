@@ -21,6 +21,13 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                // LOGIKA REDIRECT BERDASARKAN ROLE
+                // Jika Role = 1 (Admin), arahkan ke dashboard admin
+                if (Auth::user()->role == 1) {
+                    return redirect('/admin/dashboard');
+                }
+
+                // Jika Role = 0 (User), arahkan ke home sesuai RouteServiceProvider
                 return redirect(RouteServiceProvider::HOME);
             }
         }
