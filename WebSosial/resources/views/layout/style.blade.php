@@ -687,7 +687,7 @@
             
             {{-- 1. HANYA UNTUK TAMU (GUEST) --}}
             @guest
-                <li><a href="{{ url('/') }}">Bergabung dengan Kami</a></li>
+                <li><a href="{{ url('/gabung') }}">Bergabung dengan Kami</a></li>
             @endguest
 
             {{-- 2. HANYA UNTUK ADMIN (ROLE 1) --}}
@@ -704,8 +704,11 @@
                 @endif
             @endauth
 
-            <li><a href="#">Terbaru</a></li>
-            <li><a href="#">Hubungi Kami</a></li>
+            <li>
+  <a href="https://wa.me/6285713988535" target="_blank">
+    Hubungi Kami
+  </a>
+</li>
         </ul>
     </nav>
 

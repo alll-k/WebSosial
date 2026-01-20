@@ -13,6 +13,7 @@ Route::get('/program', function () { return view('program'); });
 Route::get('/tentang', function () { return view('tentang'); });
 Route::get('/prokegi', function () { return view('prokegi'); });
 Route::get('/daftar', function () { return view('daftar'); });
+Route::get('/gabung', function () { return view('gabung '); });
 Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
 
 // --- 2. AUTHENTICATION SYSTEM (Hanya untuk Tamu) ---
@@ -53,4 +54,16 @@ Route::get('/admin/dashboard', function () {
     // Fitur Bersama (Akses Akun & Logout)
     Route::post('/update-password', [AuthController::class, 'updatePassword'])->name('password.update');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+Route::get('/pendaftaran-relawan', function () {
+    return view('pendaftaran-relawan');
+});
+// halaman form
+Route::get('/pendaftaran-relawan', function () {
+    return view('pendaftaran-relawan');
+});
+
+// proses simpan (sementara)
+Route::post('/pendaftaranrelawan/simpan', function () {
+    return redirect('/gabung')->with('success', 'Pendaftaran berhasil dikirim');
 });
