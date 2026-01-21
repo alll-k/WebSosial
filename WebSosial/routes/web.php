@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AktifitasController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth; // Penting untuk logika role di dalam rute
 
@@ -30,14 +31,7 @@ Route::middleware(['auth'])->group(function () {
     
     // --- LAMAN USER (Role 0) ---
     // Ditujukan bagi relawan terdaftar untuk akses fitur lengkap dan donasi
-    Route::get('/home', function () {
-        // Proteksi: Jika Admin (role 1) mengakses /home, paksa ke dashboard admin
-        if (Auth::user()->role == 1) {
-            return redirect('/admin/dashboard');
-        }
-        // Tampilkan laman khusus user/relawan
-        return view('home'); 
-    });
+    Route::get('/home', [AktifitasController::class, 'index']);
     
     // --- LAMAN ADMIN (Role 1) ---
     // Dilengkapi fitur khusus administrator untuk mengelola sistem dan konten
