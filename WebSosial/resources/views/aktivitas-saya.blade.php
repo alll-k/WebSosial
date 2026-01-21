@@ -6,7 +6,7 @@
     .aktivitas-header {
         background: linear-gradient(135deg, #0288d1, #26c6da);
         color: white;
-        padding: 50px 20px;
+        padding: 80px 20px 40px; /* tambahkan top padding agar judul turun */
         text-align: center;
         margin-bottom: 40px;
         border-radius: 10px;
@@ -232,67 +232,6 @@
         </div>
     </div>
 
-    <!-- Tombol Tambah -->
-    <a href="#" class="btn-tambah">+ Tambah Aktivitas Baru</a>
-
-    <!-- Daftar Aktivitas -->
-    <h2 class="aktivitas-section-title">Daftar Aktivitas Anda</h2>
-    
-    @if($aktivitas->count() > 0)
-        <div class="aktivitas-list">
-            @foreach($aktivitas as $item)
-                <div class="aktivitas-item">
-                    <div class="aktivitas-icon">
-                        @switch($item->tipe_aktivitas)
-                            @case('Bakti Sosial')
-                                🤝
-                                @break
-                            @case('Pendidikan')
-                                📚
-                                @break
-                            @case('Kesehatan')
-                                ⚕️
-                                @break
-                            @case('Lingkungan')
-                                🌱
-                                @break
-                            @case('Pemberdayaan Masyarakat')
-                                💪
-                                @break
-                            @default
-                                ✨
-                        @endswitch
-                    </div>
-                    <div class="aktivitas-content">
-                        <h3>{{ $item->judul }}</h3>
-                        <span class="aktivitas-type">{{ $item->tipe_aktivitas }}</span>
-                        
-                        <div class="aktivitas-meta">
-                            <span>📍 {{ $item->lokasi }}</span>
-                        </div>
-                        <div class="aktivitas-meta">
-                            <span>📅 {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}</span>
-                            <span>⏰ {{ $item->waktu_mulai }} - {{ $item->waktu_selesai }}</span>
-                        </div>
-                        
-                        <p class="aktivitas-deskripsi">{{ $item->deskripsi }}</p>
-                        
-                        <div class="aktivitas-footer">
-                            <span class="aktivitas-peserta">👥 {{ $item->jumlah_peserta }} peserta</span>
-                            <span class="aktivitas-status @if($item->status == 'aktif') status-aktif @elseif($item->status == 'selesai') status-selesai @else status-batal @endif">
-                                {{ ucfirst($item->status) }}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    @else
-        <div class="kosong-state">
-            <p>📭 Belum ada aktivitas</p>
-            <p style="font-size: 1rem; color: #bbb;">Mulai catat aktivitas sosial Anda untuk membantu sesama</p>
-        </div>
-    @endif
-</div>
+    </div>
 
 @endsection
