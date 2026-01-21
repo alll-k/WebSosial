@@ -3,79 +3,53 @@
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AktifitasController;
+use App\Http\Controllers\DonasiController; // Tambahkan ini
+use App\Http\Controllers\PendaftaranController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth; // Penting untuk logika role di dalam rute
+use Illuminate\Support\Facades\Auth;
 
-// --- 1. AKSES PUBLIK (Tamu / Guest) ---
-// Laman Home yang menyediakan informasi umum dan berita terbaru tanpa akun
+// --- 1. AKSES PUBLIK ---
 Route::get('/', [BeritaController::class, 'berita']);
 Route::get('/jadwal', function () { return view('jadwal'); });
 Route::get('/program', function () { return view('program'); });
 Route::get('/tentang', function () { return view('tentang'); });
 Route::get('/prokegi', function () { return view('prokegi'); });
 Route::get('/daftar', function () { return view('daftar'); });
-Route::get('/gabung', function () { return view('gabung '); });
+Route::get('/gabung', function () { return view('gabung'); });
 Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
 
-// --- 2. AUTHENTICATION SYSTEM (Hanya untuk Tamu) ---
-// Middleware 'guest' memastikan user yang sudah login tidak bisa kembali ke laman login
+// Halaman Utama (Data Riil)
+Route::get('/donasi', [App\Http\Controllers\DonasiController::class, 'index'])->name('donasi.index');
+
+// Form Input
+Route::get('/donasi/form', [App\Http\Controllers\DonasiController::class, 'showForm'])->name('donasi.form');
+
+// Proses Simpan
+Route::post('/donasi/submit', [App\Http\Controllers\DonasiController::class, 'submit'])->name('donasi.submit');
+
+// --- 3. AUTHENTICATION SYSTEM ---
 Route::middleware(['guest'])->group(function () {
     Route::get('/profil', function () { return view('profil'); })->name('login');
     Route::post('/login-proses', [AuthController::class, 'login'])->name('login.post');
     Route::post('/register-proses', [AuthController::class, 'register'])->name('register.post');
 });
 
-// --- 3. AKSES TERPROTEKSI (User Biasa & Admin) ---
-// Middleware 'auth' menjaga agar fitur hanya bisa diakses setelah login
+// --- 4. AKSES TERPROTEKSI ---
 Route::middleware(['auth'])->group(function () {
-
-    // --- LAMAN USER (Role 0) ---
-    // Ditujukan bagi relawan terdaftar untuk akses fitur lengkap dan donasi
     Route::get('/home', [AktifitasController::class, 'index']);
 
-    // --- LAMAN ADMIN (Role 1) ---
-    // Dilengkapi fitur khusus administrator untuk mengelola sistem dan konten
-Route::get('/admin/dashboard', function () {
-    if (Auth::user()->role != 1) {
-        return redirect('/home');
-    }
+    Route::get('/admin/dashboard', function () {
+        if (Auth::user()->role != 1) { return redirect('/home'); }
+        $beritas = app(BeritaController::class)->berita()->getData()['beritas'];
+        return view('admin.dashboarda', compact('beritas'));
+    });
 
-    // Ambil data berita agar variabel $beritas tidak undefined
-    $beritas = app(App\Http\Controllers\BeritaController::class)->berita()->getData()['beritas'];
-
-    return view('admin.dashboarda', compact('beritas'));
-});
-    // Fitur Bersama (Akses Akun & Logout)
     Route::post('/update-password', [AuthController::class, 'updatePassword'])->name('password.update');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-// --- 4. FORM PENDAFTARAN RELAWAN (PUBLIC) ---
-Route::get('/pendaftaran-relawan', function () {
-    return view('pendaftaranrelawan');
-});
-
-// Proses simpan pendaftaran
-Route::post('/pendaftaran-relawan/simpan', function (\Illuminate\Http\Request $request) {
-    $validated = $request->validate([
-        'nama_lengkap' => 'required|string|max:255',
-        'nama_panggilan' => 'nullable|string|max:255',
-        'tempat_lahir' => 'required|string|max:255',
-        'tanggal_lahir' => 'required|date',
-        'alamat' => 'required|string',
-        'no_wa' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-        'instansi' => 'nullable|string|max:255',
-        'keahlian' => 'nullable|string',
-        'alasan' => 'required|string',
-        'pengalaman' => 'nullable|string',
-        'kegiatan' => 'nullable|string|max:255',
-        'tanggal_kegiatan' => 'nullable|string|max:255',
-        'jam_kegiatan' => 'nullable|string|max:255',
-        'lokasi_kegiatan' => 'nullable|string|max:255',
-    ]);
-
-    \App\Models\PendaftaranRelawan::create($validated);
-
-    return redirect('/gabung')->with('success', 'Pendaftaran berhasil dikirim!');
-});
+// --- 5. PENDAFTARAN RELAWAN ---
+Route::get('/pendaftaran-relawan', function () { return view('pendaftaranrelawan'); });
+Route::post('/pendaftaran-relawan/verifikasi-email', [PendaftaranController::class, 'prosesVerifikasi'])->name('relawan.verifikasi');
+Route::get('/pendaftaran-relawan/otp', function () { return view('verifikasi_otp'); })->name('relawan.otp.view');
+Route::post('/pendaftaran-relawan/final-simpan', [PendaftaranController::class, 'simpanPermanen'])->name('relawan.simpan');

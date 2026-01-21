@@ -2,28 +2,24 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class PendaftaranRelawan extends Model
 {
-    protected $table = 'pendaftaran_relawan';
+    use HasFactory;
 
+    protected $table = 'pendaftaran_relawan'; // Nama tabel di DB utama
+
+    // Daftarkan semua kolom agar bisa disimpan oleh Laravel
     protected $fillable = [
-        'nama_lengkap',
-        'nama_panggilan',
-        'tempat_lahir',
-        'tanggal_lahir',
-        'alamat',
-        'no_wa',
-        'email',
-        'instansi',
-        'keahlian',
-        'alasan',
-        'pengalaman',
-        'kegiatan',
-        'tanggal_kegiatan',
-        'jam_kegiatan',
-        'lokasi_kegiatan',
-        'status',
+        'nama_lengkap', 
+        'email', 
+        'no_wa', 
+        'alamat', 
+        'alasan', 
+        'tempat_lahir', 
+        'tanggal_lahir', 
+        'kegiatan'
     ];
 }

@@ -128,7 +128,7 @@
 </style>
 
 <div class="hero-revised">
-    <h1>Jadwal Kegiatan Sosial</h1>
+    <h1>Tertarik Menjadi Relawan?</h1>
     <p>
         Jadilah bagian dari perubahan! Pilih kegiatan yang sesuai dengan minatmu dan mari bantu sesama dengan penuh semangat.
     </p>

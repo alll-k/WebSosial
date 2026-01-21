@@ -38,7 +38,7 @@
     @endif
 
     <!-- FORM -->
-    <form action="{{ url('/pendaftaran-relawan/simpan') }}" method="POST">
+    <form action="{{ route('relawan.verifikasi') }}" method="POST">
         @csrf
 
         <!-- Hidden Input untuk Kegiatan -->

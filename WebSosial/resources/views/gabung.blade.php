@@ -235,13 +235,6 @@
         </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="cta-section">
-        <h2>Siap Memulai?</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 0;">Isi formulir pendaftaran dan jadilah bagian dari tim kami</p>
-        <a href="{{ url('/profil') }}" class="btn-register">📝 Daftar Sekarang</a>
-    </div>
-
     <!-- Data Diri Section -->
     <div class="data-section">
         <h3>Data Diri yang Perlu Diisi</h3>
@@ -268,6 +261,11 @@
                 Proses verifikasi biasanya memakan waktu 3-5 hari kerja.
             </p>
         </div>
+    </div>
+        <div class="cta-section">
+        <h2>Siap Memulai?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 0;">Isi formulir pendaftaran dan jadilah bagian dari tim kami</p>
+        <a href="{{ url('/profil') }}" class="btn-register">📝 Daftar Sekarang</a>
     </div>
 </div>
 

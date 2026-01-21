@@ -138,29 +138,29 @@
 
 {{-- Section Kartu Program --}}
 <section class="program-section">
-    <h2 class="section-title">Inisiatif Relawan</h2>
+    <h2 class="section-title">Fasilitas Kami</h2>
 
     <div class="grid-program">
         <div class="card-program">
             <div>
                 <span style="font-size: 3rem; display: block; margin-bottom: 15px;">📅</span>
-                <h3>Jadwal Kegiatan Terdekat</h3>
+                <h3>Join Relawan</h3>
                 <p>
-                    Yuk simak jadwal kegiatan terdekat kami—siapa tahu kamu adalah relawan hebat berikutnya yang kami cari!
+                   Punya waktu dan ingin berbagi dampak baik? Yuk join jadi relawan dan tumbuh bersama kami di berbagai kegiatan bermakna.
                 </p>
             </div>
-            <a href="{{ url('/jadwal') }}" class="btn-action">Lihat Semua Jadwal</a>
+            <a href="{{ url('/jadwal') }}" class="btn-action">Klik Disini!!!</a>
         </div>
 
         <div class="card-program">
             <div>
                 <span style="font-size: 3rem; display: block; margin-bottom: 15px;">🚀</span>
-                <h3>Program Pemberdayaan</h3>
+                <h3>Tertarik Berdonasi?</h3>
                 <p>
-                    Kami memiliki berbagai program relawan berkelanjutan yang berfokus membantu kemandirian masyarakat luas.
+                    Mari ambil bagian dalam upaya membangun kemandirian masyarakat. Donasi Anda mendukung program-program berkelanjutan yang memberi perubahan nyata.
                 </p>
             </div>
-            <a href="{{ url('/program') }}" class="btn-action">Lihat Semua Program</a>
+            <a href="{{ url('/program') }}" class="btn-action">Klik Disini!!!</a>
         </div>
     </div>
 </section>
