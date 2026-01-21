@@ -146,8 +146,8 @@
                 <div class="info-item"><span>📅</span> 12 Desember 2025</div>
                 <div class="info-item"><span>⏰</span> 08.00 – 12.00 WIB</div>
                 <div class="info-item"><span>📍</span> Desa Mekarsari</div>
-                <a href="https://wa.me/628xxx?text=Halo%20saya%20ingin%20ikut%20kegiatan%20Bakti%20Sosial" class="btn-wa">
-                    Daftar via WhatsApp
+                <a href="/pendaftaran-relawan?kegiatan=Bakti%20Sosial%20Pembagian%20Sembako&tanggal=12%20Desember%202025&jam=08:00%20-%2012:00&lokasi=Desa%20Mekarsari" class="btn-wa">
+                    Daftar Sekarang
                 </a>
             </div>
         </div>
@@ -159,8 +159,8 @@
                 <div class="info-item"><span>📅</span> 15 Desember 2025</div>
                 <div class="info-item"><span>⏰</span> 09.00 – 13.00 WIB</div>
                 <div class="info-item"><span>📍</span> Kecamatan Andir</div>
-                <a href="https://wa.me/628xxx?text=Saya%20ingin%20ikut%20kegiatan%20Pemeriksaan%20Kesehatan" class="btn-wa">
-                    Daftar via WhatsApp
+                <a href="/pendaftaran-relawan?kegiatan=Pemeriksaan%20Kesehatan%20Gratis&tanggal=15%20Desember%202025&jam=09:00%20-%2013:00&lokasi=Kecamatan%20Andir" class="btn-wa">
+                    Daftar Sekarang
                 </a>
             </div>
         </div>
@@ -172,8 +172,8 @@
                 <div class="info-item"><span>📅</span> 20 Desember 2025</div>
                 <div class="info-item"><span>⏰</span> 13.00 – 16.00 WIB</div>
                 <div class="info-item"><span>📍</span> Rumah Belajar Cibeunying</div>
-                <a href="https://wa.me/628xxx?text=Saya%20tertarik%20mengajar%20anak-anak" class="btn-wa">
-                    Daftar via WhatsApp
+                <a href="/pendaftaran-relawan?kegiatan=Pengajaran%20Anak-anak%20(Trauma%20Healing)&tanggal=20%20Desember%202025&jam=13:00%20-%2016:00&lokasi=Rumah%20Belajar%20Cibeunying" class="btn-wa">
+                    Daftar Sekarang
                 </a>
             </div>
         </div>

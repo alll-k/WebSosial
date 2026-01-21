@@ -12,9 +12,42 @@
         </p>
     </div>
 
+    <!-- Info Kegiatan Terpilih -->
+    @if(request()->has('kegiatan'))
+        <div style="background: linear-gradient(135deg, #e3f2fd, #f3e5f5); border-left: 5px solid #0288d1; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
+            <h5 style="color: #0288d1; margin: 0 0 15px 0;">📋 Kegiatan yang Anda Daftar:</h5>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: white; padding: 12px; border-radius: 6px;">
+                    <strong style="color: #0277bd;">🎯 Kegiatan:</strong><br>
+                    <span style="color: #555; font-size: 0.95rem;">{{ request()->get('kegiatan') }}</span>
+                </div>
+                <div style="background: white; padding: 12px; border-radius: 6px;">
+                    <strong style="color: #0277bd;">📅 Tanggal:</strong><br>
+                    <span style="color: #555; font-size: 0.95rem;">{{ request()->get('tanggal') }}</span>
+                </div>
+                <div style="background: white; padding: 12px; border-radius: 6px;">
+                    <strong style="color: #0277bd;">⏰ Jam:</strong><br>
+                    <span style="color: #555; font-size: 0.95rem;">{{ request()->get('jam') }}</span>
+                </div>
+                <div style="background: white; padding: 12px; border-radius: 6px;">
+                    <strong style="color: #0277bd;">📍 Lokasi:</strong><br>
+                    <span style="color: #555; font-size: 0.95rem;">{{ request()->get('lokasi') }}</span>
+                </div>
+            </div>
+        </div>
+    @endif
+
     <!-- FORM -->
     <form action="{{ url('/pendaftaran-relawan/simpan') }}" method="POST">
         @csrf
+
+        <!-- Hidden Input untuk Kegiatan -->
+        @if(request()->has('kegiatan'))
+            <input type="hidden" name="kegiatan" value="{{ request()->get('kegiatan') }}">
+            <input type="hidden" name="tanggal_kegiatan" value="{{ request()->get('tanggal') }}">
+            <input type="hidden" name="jam_kegiatan" value="{{ request()->get('jam') }}">
+            <input type="hidden" name="lokasi_kegiatan" value="{{ request()->get('lokasi') }}">
+        @endif
 
         <!-- Data Pribadi -->
         <h5 class="mb-3">Data Diri</h5>
