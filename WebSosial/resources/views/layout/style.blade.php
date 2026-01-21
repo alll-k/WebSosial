@@ -705,9 +705,11 @@
             @endauth
 
             <li>
-  <a href="https://wa.me/6285713988535" target="_blank">
-    Hubungi Kami
-  </a>
+  <a href="https://wa.me/6285713988535?text=Halo%20kak,%0A%0ASaya%20ingin%20bertanya%20terkait%20website%20relawan.%0AApakah%20boleh%20dibantu%20penjelasannya?"
+   target="_blank">
+   Hubungi Admin
+</a>
+
 </li>
         </ul>
     </nav>
