@@ -208,11 +208,23 @@
     <p style="text-align: center; color: #777; margin-bottom: 30px;">Geser ke samping untuk melihat berita lainnya</p>
 
     <div class="scroll-container">
+        @php
+            $defaultImages = [
+                'gambar 2.jpg',
+                'gambar 3.jpg',
+                'gambar 4.jpg',
+                'gambar_1.jpg',
+                'ti.jpg'
+            ];
+        @endphp
         @foreach($beritas as $berita)
+            @php
+                $defaultImage = $defaultImages[$loop->index % count($defaultImages)];
+            @endphp
             <a href="/berita/{{ $berita['slug'] }}" class="kolom-berita">
                 {{-- Gambar berita josjis --}}
-                <img src="{{ $berita['gambar'] ?? 'https://images.unsplash.com/photo-1488998471876-00366601b072?auto=format&fit=crop&q=80&w=600' }}"
-                     alt="Thumbnail" class="berita-img">
+                <img src="{{ $berita['gambar'] ?? asset('images/' . $defaultImage) }}"
+                     alt="{{ $berita['judul'] }}" class="berita-img">
                 <div class="berita-info">
                     <h2>{{ $berita['judul'] }}</h2>
                     <h3>✍️ {{ $berita['penulis'] }}</h3>
