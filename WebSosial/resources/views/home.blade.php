@@ -193,7 +193,7 @@
             </div>
         </div>
         <div class="expertise-card">
-            <img src="https://images.unsplash.com/photo-1454165833767-027ee617f26c?auto=format&fit=crop&q=80&w=1000" alt="Evaluasi">
+            <img src="{{ asset('images/gambar_1.jpg') }}" alt="Kaji & Evaluasi">
             <div class="expertise-text">
                 <h3 style="color:#0288d1">Kaji & Evaluasi</h3>
                 <p>Analisis mendalam terhadap isu sosial demi solusi yang berkelanjutan dan tepat sasaran.</p>
@@ -206,12 +206,12 @@
 <section class="layanan-berita">
     <h1 style="text-align: center; font-weight: 800; margin-bottom: 10px;">Berita Terkini</h1>
     <p style="text-align: center; color: #777; margin-bottom: 30px;">Geser ke samping untuk melihat berita lainnya</p>
-    
+
     <div class="scroll-container">
         @foreach($beritas as $berita)
             <a href="/berita/{{ $berita['slug'] }}" class="kolom-berita">
                 {{-- Gambar berita josjis --}}
-                <img src="{{ $berita['gambar'] ?? 'https://images.unsplash.com/photo-1488998471876-00366601b072?auto=format&fit=crop&q=80&w=600' }}" 
+                <img src="{{ $berita['gambar'] ?? 'https://images.unsplash.com/photo-1488998471876-00366601b072?auto=format&fit=crop&q=80&w=600' }}"
                      alt="Thumbnail" class="berita-img">
                 <div class="berita-info">
                     <h2>{{ $berita['judul'] }}</h2>
