@@ -244,11 +244,10 @@
 {{-- Mitra --}}
 <section style="text-align: center; padding: 60px 20px;">
     <h2 style="color: #444; margin-bottom: 30px;">Mitra Strategis</h2>
-    <div class="mitra-logos">
-        <div class="mitra-logo-item"><img src="https://cisdi.org/wp-content/uploads/2021/08/Global-Fund.png" alt="Global Fund" style="height: 50px;"></div>
-        <div class="mitra-logo-item"><img src="https://cisdi.org/wp-content/uploads/2021/08/Co-Impact.png" alt="Co-Impact" style="height: 50px;"></div>
-        <div class="mitra-logo-item"><img src="https://cisdi.org/wp-content/uploads/2021/08/bloomberg-philantrophies.png" alt="Bloomberg" style="height: 50px;"></div>
-        <div class="mitra-logo-item"><img src="https://cisdi.org/wp-content/uploads/2021/08/bill-melinda-gates.png" alt="Gates" style="height: 50px;"></div>
+    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
+        <img src="{{ asset('images/pmi.jpg') }}" alt="Mitra 4" style="height: 100px; width: auto; border-radius: 10px;">
+        <img src="{{ asset('images/unimus.jpg') }}" alt="Mitra 4" style="height: 100px; width: auto; border-radius: 10px;">
+        <img src="{{ asset('images/ti2.jpg') }}" alt="Mitra 5" style="height: 100px; width: auto; border-radius: 10px;">
     </div>
 </section>
 
