@@ -245,7 +245,7 @@
 
 <section class="section-padding">
     <h2 class="section-title">Tim Kepemimpinan</h2>
-    <div class="grid-team">
+    <div class="grid-team" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 0 auto 50px;">
         <div class="member-card">
             <div class="member-img">👨‍💼</div>
             <h4>Hammam Al Kamil </h4>
@@ -261,6 +261,8 @@
             <h4>Dian Fadhilah </h4>
             <p style="color: #0288d1; font-weight: bold;">Kepala Kesehatan</p>
         </div>
+    </div>
+    <div class="grid-team" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 600px; margin: 0 auto;">
         <div class="member-card">
             <div class="member-img">🧑‍💻</div>
             <h4>Arif Surya Saputra </h4>
