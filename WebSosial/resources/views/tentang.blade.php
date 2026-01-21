@@ -248,18 +248,28 @@
     <div class="grid-team">
         <div class="member-card">
             <div class="member-img">👨‍💼</div>
-            <h4>Hendra Wijaya</h4>
-            <p style="color: #0288d1; font-weight: bold;">Ketua Eksekutif</p>
+            <h4>Hammam Al Kamil </h4>
+            <p style="color: #0288d1; font-weight: bold;">Ketua</p>
         </div>
         <div class="member-card">
-            <div class="member-img">👩‍💼</div>
-            <h4>Siti Nurhaliza</h4>
-            <p style="color: #0288d1; font-weight: bold;">Kepala Pendidikan</p>
+            <div class="member-img">👩‍💻</div>
+            <h4>Jenny Wulandari </h4>
+            <p style="color: #0288d1; font-weight: bold;">Kepala Admin</p>
         </div>
         <div class="member-card">
-            <div class="member-img">👨‍⚕️</div>
-            <h4>Dr. Budi Santoso</h4>
+            <div class="member-img">👩‍⚕️</div>
+            <h4>Dian Fadhilah </h4>
             <p style="color: #0288d1; font-weight: bold;">Kepala Kesehatan</p>
+        </div>
+        <div class="member-card">
+            <div class="member-img">🧑‍💻</div>
+            <h4>Arif Surya Saputra </h4>
+            <p style="color: #0288d1; font-weight: bold;">Kepala Teknologi</p>
+        </div>
+        <div class="member-card">
+            <div class="member-img">👷‍♂️</div>
+            <h4>Muhammad Aqil Miqdadu Fatih</h4>
+            <p style="color: #0288d1; font-weight: bold;">Kepala Relawan</p>
         </div>
     </div>
 </section>
