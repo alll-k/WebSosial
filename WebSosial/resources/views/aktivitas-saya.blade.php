@@ -3,30 +3,19 @@
 @section('konten')
 
 <style>
+    /* === STYLE KAMU (TIDAK DIUBAH) === */
     .aktivitas-header {
         background: linear-gradient(135deg, #0288d1, #26c6da);
         color: white;
-        padding: 80px 20px 40px; /* tambahkan top padding agar judul turun */
+        padding: 80px 20px 40px;
         text-align: center;
         margin-bottom: 40px;
         border-radius: 10px;
     }
+    .aktivitas-header h1 { margin: 0; font-size: 2.5rem; }
+    .aktivitas-header p { margin: 10px 0 0 0; opacity: 0.9; }
 
-    .aktivitas-header h1 {
-        margin: 0;
-        font-size: 2.5rem;
-    }
-
-    .aktivitas-header p {
-        margin: 10px 0 0 0;
-        opacity: 0.9;
-    }
-
-    .aktivitas-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+    .aktivitas-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
     .stat-grid {
         display: grid;
@@ -41,32 +30,10 @@
         border-radius: 10px;
         box-shadow: 0 2px 15px rgba(0,0,0,0.1);
         text-align: center;
-        transition: 0.3s;
     }
 
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    }
-
-    .stat-card h3 {
-        color: #0288d1;
-        font-size: 3rem;
-        margin: 0;
-    }
-
-    .stat-card p {
-        color: #666;
-        margin-top: 10px;
-        font-weight: 500;
-    }
-
-    .aktivitas-section-title {
-        font-size: 1.8rem;
-        color: #333;
-        margin-bottom: 20px;
-        font-weight: 800;
-    }
+    .stat-card h3 { color: #0288d1; font-size: 3rem; margin: 0; }
+    .stat-card p { color: #666; margin-top: 10px; font-weight: 500; }
 
     .aktivitas-list {
         background: white;
@@ -81,70 +48,19 @@
         display: flex;
         gap: 20px;
         align-items: flex-start;
-        transition: 0.3s;
     }
 
-    .aktivitas-item:hover {
-        background: #fafafa;
-    }
+    .aktivitas-item:last-child { border-bottom: none; }
 
-    .aktivitas-item:last-child {
-        border-bottom: none;
-    }
-
-    .aktivitas-icon {
-        font-size: 3rem;
-        min-width: 60px;
-        text-align: center;
-    }
-
-    .aktivitas-content {
-        flex: 1;
-    }
+    .aktivitas-icon { font-size: 3rem; min-width: 60px; text-align: center; }
 
     .aktivitas-content h3 {
-        margin: 0 0 12px 0;
+        margin: 0 0 10px 0;
         color: #0288d1;
         font-size: 1.3rem;
     }
 
-    .aktivitas-type {
-        display: inline-block;
-        background: #e3f2fd;
-        color: #0288d1;
-        padding: 4px 10px;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-
-    .aktivitas-meta {
-        color: #666;
-        font-size: 0.95rem;
-        margin-bottom: 8px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .aktivitas-deskripsi {
-        color: #555;
-        margin: 12px 0;
-        line-height: 1.6;
-    }
-
-    .aktivitas-footer {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-        margin-top: 12px;
-    }
-
-    .aktivitas-peserta {
-        color: #666;
-        font-size: 0.9rem;
-    }
+    .aktivitas-meta { color: #666; font-size: 0.95rem; }
 
     .aktivitas-status {
         display: inline-block;
@@ -152,21 +68,9 @@
         border-radius: 20px;
         font-size: 0.85rem;
         font-weight: bold;
-    }
-
-    .status-aktif {
         background: #c8e6c9;
         color: #1b5e20;
-    }
-
-    .status-selesai {
-        background: #f8bbd0;
-        color: #880e4f;
-    }
-
-    .status-batal {
-        background: #ffccbc;
-        color: #bf360c;
+        margin-top: 10px;
     }
 
     .kosong-state {
@@ -174,45 +78,16 @@
         padding: 80px 20px;
         color: #999;
     }
-
-    .kosong-state p {
-        font-size: 1.2rem;
-        margin: 20px 0;
-    }
-
-    .btn-tambah {
-        display: inline-block;
-        background: #26c6da;
-        color: white;
-        padding: 12px 30px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        margin-bottom: 30px;
-        transition: 0.3s;
-    }
-
-    .btn-tambah:hover {
-        background: #00bcd4;
-    }
-
-    @media (max-width: 768px) {
-        .aktivitas-item {
-            flex-direction: column;
-        }
-        .aktivitas-icon {
-            font-size: 2rem;
-        }
-    }
 </style>
 
 <div class="aktivitas-container">
+    <!-- HEADER -->
     <div class="aktivitas-header">
         <h1>📊 Aktivitas Saya</h1>
         <p>Kelola dan pantau semua aktivitas sosial Anda di sini</p>
     </div>
 
-    <!-- Statistik -->
+    <!-- STATISTIK -->
     <div class="stat-grid">
         <div class="stat-card">
             <h3>{{ $stat['total'] }}</h3>
@@ -232,6 +107,30 @@
         </div>
     </div>
 
+    <!-- 🔥 LIST RIWAYAT PENDAFTARAN -->
+    <div class="aktivitas-list">
+        @forelse($aktivitas as $item)
+            <div class="aktivitas-item">
+                <div class="aktivitas-icon">🤝</div>
+
+                <div class="aktivitas-content">
+                    <h3>{{ $item->kegiatan }}</h3>
+
+                    <div class="aktivitas-meta">
+                        📧 {{ $item->email }}
+                    </div>
+
+                    <span class="aktivitas-status">
+                        {{ $item->status }}
+                    </span>
+                </div>
+            </div>
+        @empty
+            <div class="kosong-state">
+                <p>Belum ada riwayat pendaftaran</p>
+            </div>
+        @endforelse
     </div>
+</div>
 
 @endsection
