@@ -1,272 +1,266 @@
 @extends('layout.style')
 
 @section('konten')
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-    /* Hero Section */
-    .hero-gabung {
-        padding: 130px 20px 80px 20px;
-        background: linear-gradient(135deg, #0288d1, #26c6da);
+    :root {
+        --brand-primary: #0288d1;
+        --brand-secondary: #26c6da;
+        --brand-dark: #0f172a;
+        --text-slate: #64748b;
+        --bg-light: #f8fafc;
+    }
+
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        background-color: #ffffff;
+    }
+
+    /* --- Hero Section Terintegrasi --- */
+    .hero-volunteer {
+        padding: 160px 20px 100px;
+        background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                    url('{{ asset("images/gambar 4.jpg") }}');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
         text-align: center;
         color: white;
+        border-radius: 0 0 50px 50px;
     }
 
-    .hero-gabung h1 {
-        font-size: 3.5rem;
+    .hero-volunteer h1 {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
         font-weight: 800;
-        margin-bottom: 15px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
     }
 
-    .hero-gabung p {
-        font-size: 1.2rem;
-        margin: 0;
-        opacity: 0.95;
-    }
-
-    /* Section Styling */
-    .section-padding {
-        padding: 80px 20px;
-    }
-
-    .bg-light {
-        background: #f8f9fa;
-    }
-
-    .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        color: #333;
-        margin-bottom: 40px;
+    /* --- Alur Pendaftaran (Step-by-Step) --- */
+    .step-container {
+        margin-top: -60px;
         position: relative;
+        z-index: 10;
+        padding: 0 15px;
     }
 
-    .section-title::after {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 5px;
-        background: #26c6da;
-        margin: 15px auto 0;
-        border-radius: 10px;
+    .step-box {
+        background: white;
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        border: 1px solid #f1f5f9;
     }
 
-    .intro-text {
-        max-width: 900px;
-        margin: 0 auto 60px;
+    .step-item {
         text-align: center;
-        line-height: 1.8;
-        font-size: 1.1rem;
-        color: #555;
+        padding: 20px;
     }
 
-    /* Grid Cards */
-    .grid-two {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        max-width: 1100px;
-        margin: 0 auto 60px;
+    .step-number {
+        width: 50px;
+        height: 50px;
+        background: var(--brand-secondary);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        margin: 0 auto 20px;
+        box-shadow: 0 10px 15px rgba(38, 198, 218, 0.3);
     }
+
+    /* --- Content Sections --- */
+    .section-padding { padding: 80px 0; }
 
     .card-modern {
-        background: white;
+        background: var(--bg-light);
+        border-radius: 24px;
         padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease;
+        border: 1px solid #e2e8f0;
+        height: 100%;
+        transition: 0.3s;
     }
 
     .card-modern:hover {
-        transform: translateY(-10px);
+        background: white;
+        border-color: var(--brand-primary);
+        box-shadow: 0 20px 30px rgba(0,0,0,0.05);
     }
 
     .card-modern h3 {
-        color: #0288d1;
-        font-size: 1.5rem;
-        margin-bottom: 20px;
+        color: var(--brand-dark);
+        font-weight: 700;
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
     }
 
-    .card-modern ul {
+    /* --- Requirement List --- */
+    .requirement-list {
         list-style: none;
         padding: 0;
     }
 
-    .card-modern li {
+    .requirement-list li {
         padding: 12px 0;
-        border-bottom: 1px solid #e0e0e0;
-        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: var(--text-slate);
+        border-bottom: 1px solid #e2e8f0;
     }
 
-    .card-modern li:last-child {
-        border-bottom: none;
+    .requirement-list li i {
+        color: #10b981;
+        margin-top: 5px;
     }
 
-    .card-modern li::before {
-        content: '✓ ';
-        color: #26c6da;
-        font-weight: bold;
-        margin-right: 10px;
-    }
-
-    /* CTA Button */
-    .cta-section {
-        text-align: center;
-        padding: 60px 20px;
-        background: linear-gradient(135deg, #0288d1, #26c6da);
-        border-radius: 20px;
+    /* --- Form Info Section --- */
+    .data-info-box {
+        background: var(--brand-dark);
         color: white;
-        margin: 60px auto;
-        max-width: 800px;
+        border-radius: 30px;
+        padding: 60px;
+        margin: 60px 0;
     }
 
-    .cta-section h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
+    .data-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
     }
 
-    .cta-section .btn-register {
-        background: white;
-        color: #0288d1;
-        padding: 15px 40px;
-        font-size: 1.1rem;
-        font-weight: bold;
-        border-radius: 50px;
+    .data-item {
+        background: rgba(255,255,255,0.1);
+        padding: 15px 20px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+    }
+
+    /* --- CTA Button --- */
+    .btn-register-main {
+        background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+        color: white;
+        padding: 20px 50px;
+        border-radius: 100px;
+        font-weight: 800;
         text-decoration: none;
-        transition: all 0.3s ease;
         display: inline-block;
+        font-size: 1.2rem;
+        box-shadow: 0 15px 30px rgba(2, 136, 209, 0.3);
+        transition: 0.3s;
+    }
+
+    .btn-register-main:hover {
+        transform: translateY(-5px);
+        color: white;
+        box-shadow: 0 20px 40px rgba(2, 136, 209, 0.4);
+    }
+
+    .privacy-note {
+        font-size: 0.85rem;
+        color: var(--text-slate);
         margin-top: 20px;
-    }
-
-    .cta-section .btn-register:hover {
-        background: #f0f0f0;
-        transform: scale(1.05);
-    }
-
-    /* Data Form Section */
-    .data-section {
-        max-width: 900px;
-        margin: 0 auto;
-        background: white;
-        padding: 50px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-
-    .data-section h3 {
-        color: #0288d1;
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-
-    .data-section ul {
-        list-style: none;
-        padding: 0;
-        columns: 2;
-        column-gap: 30px;
-    }
-
-    .data-section li {
-        padding: 12px 0;
-        line-height: 1.8;
-        break-inside: avoid;
-    }
-
-    .data-section li::before {
-        content: '▸ ';
-        color: #26c6da;
-        font-weight: bold;
-        margin-right: 10px;
-    }
-
-    .note-section {
-        background: #f0f8ff;
-        padding: 30px;
-        border-radius: 15px;
-        margin-top: 40px;
-        border-left: 5px solid #26c6da;
-    }
-
-    .note-section p {
-        color: #555;
-        line-height: 1.8;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>
 
-<!-- Hero Section -->
-<div class="hero-gabung">
-    <h1>Gabung Menjadi Relawan</h1>
-    <p>Bersama kita wujudkan aksi nyata dan kepedulian untuk Indonesia.</p>
-</div>
-
-<!-- Main Content -->
-<div class="container-fluid section-padding">
-    <div class="intro-text">
-        <p>
-            Bergabung menjadi relawan adalah langkah nyata untuk berkontribusi pada perubahan sosial. 
-            Kami membuka kesempatan bagi Anda yang ingin berbagi kepedulian dan keahlian untuk membantu 
-            masyarakat yang membutuhkan.
-        </p>
-    </div>
-
-    <!-- Sebelum dan Sesudah Bergabung -->
-    <div class="grid-two">
-        <!-- Card 1: Sebelum Bergabung -->
-        <div class="card-modern">
-            <h3>📋 Sebelum Bergabung</h3>
-            <ul>
-                <li>Memahami tujuan dan nilai kegiatan relawan yang akan diikuti.</li>
-                <li>Memastikan kesediaan waktu dan komitmen selama kegiatan berlangsung.</li>
-                <li>Menyiapkan data diri dan kontak yang aktif.</li>
-                <li>Menentukan minat dan kemampuan yang dapat dikontribusikan.</li>
-            </ul>
-        </div>
-
-        <!-- Card 2: Sesudah Bergabung -->
-        <div class="card-modern">
-            <h3>🎯 Sesudah Bergabung</h3>
-            <ul>
-                <li>Mengikuti proses verifikasi dan konfirmasi dari tim relawan.</li>
-                <li>Mendapatkan informasi terkait jadwal, lokasi, dan pembagian tugas.</li>
-                <li>Mengikuti pembekalan atau pengarahan sebelum kegiatan dimulai.</li>
-                <li>Berpartisipasi aktif dalam pelaksanaan kegiatan sosial.</li>
-                <li>Menjaga etika, tanggung jawab, dan kerja sama selama kegiatan.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Data Diri Section -->
-    <div class="data-section">
-        <h3>Data Diri yang Perlu Diisi</h3>
-        <p style="color: #666; margin-bottom: 30px;">
-            Untuk bergabung menjadi relawan, silakan mengisi formulir pendaftaran dengan data berikut:
-        </p>
-
-        <ul>
-            <li>Nama Lengkap</li>
-            <li>Umur</li>
-            <li>Alamat Domisili</li>
-            <li>Nomor WhatsApp Aktif</li>
-            <li>Alamat Email</li>
-            <li>Asal Instansi / Pekerjaan</li>
-            <li>Minat dan Keahlian</li>
-            <li>Alasan Bergabung Menjadi Relawan</li>
-            <li>Pengalaman Organisasi (jika ada)</li>
-        </ul>
-
-        <div class="note-section">
-            <p>
-                <strong>⚠️ Penting:</strong> Pastikan seluruh data yang diisi adalah benar dan dapat dipertanggungjawabkan. 
-                Tim kami akan menghubungi relawan yang memenuhi kriteria melalui kontak yang telah diberikan. 
-                Proses verifikasi biasanya memakan waktu 3-5 hari kerja.
-            </p>
-        </div>
-    </div>
-        <div class="cta-section">
-        <h2>Siap Memulai?</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 0;">Isi formulir pendaftaran dan jadilah bagian dari tim kami</p>
-        <a href="{{ url('/profil') }}" class="btn-register">📝 Daftar Sekarang</a>
+<div class="hero-volunteer">
+    <div class="container">
+        <h1>Wujudkan Dampak Bersama Kami</h1>
+        <p class="lead opacity-75">Sistem Pendaftaran Relawan Yayasan Relawan Plus yang Transparan dan Terintegrasi.</p>
     </div>
 </div>
+
+<div class="container step-container">
+    <div class="step-box">
+        <div class="row g-4">
+            <div class="col-md-4 step-item">
+                <div class="step-number">1</div>
+                <h6>Isi Formulir</h6>
+                <p class="small text-muted mb-0">Lengkapi data diri dan minat keahlian Anda melalui sistem.</p>
+            </div>
+            <div class="col-md-4 step-item border-start border-end">
+                <div class="step-number">2</div>
+                <h6>Verifikasi Data</h6>
+                <p class="small text-muted mb-0">Tim kami akan meninjau profil Anda dalam 2-3 hari kerja.</p>
+            </div>
+            <div class="col-md-4 step-item">
+                <div class="step-number">3</div>
+                <h6>Mulai Beraksi</h6>
+                <p class="small text-muted mb-0">Dapatkan akses ke dashboard relawan dan mulai berkontribusi.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container section-padding">
+    <div class="row g-5">
+        <div class="col-lg-6">
+            <div class="card-modern">
+                <h3><i class="fas fa-clipboard-list text-primary"></i> Persiapan Diri</h3>
+                <ul class="requirement-list">
+                    <li><i class="fas fa-check-circle"></i> Memiliki komitmen waktu minimal sesuai durasi program.</li>
+                    <li><i class="fas fa-check-circle"></i> Sehat jasmani dan rohani untuk kegiatan lapangan.</li>
+                    <li><i class="fas fa-check-circle"></i> Memiliki semangat kolaborasi dalam tim yang heterogen.</li>
+                    <li><i class="fas fa-check-circle"></i> Siap mengikuti prosedur K3 (Kesehatan & Keselamatan Kerja).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card-modern">
+                <h3><i class="fas fa-award text-success"></i> Benefit Relawan</h3>
+                <ul class="requirement-list">
+                    <li><i class="fas fa-check-circle"></i> Sertifikat Elektronik Resmi Yayasan Relawan Plus.</li>
+                    <li><i class="fas fa-check-circle"></i> Networking dengan profesional dan komunitas sosial.</li>
+                    <li><i class="fas fa-check-circle"></i> Pelatihan <i>soft-skill</i> dan pembekalan materi khusus.</li>
+                    <li><i class="fas fa-check-circle"></i> Asuransi perlindungan selama kegiatan (Program khusus).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-info-box">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <h2 class="fw-bold">Keamanan Data Anda Adalah Prioritas</h2>
+                <p class="opacity-75">Kami menggunakan sistem enkripsi untuk melindungi data pribadi yang Anda kirimkan. Informasi ini hanya digunakan untuk keperluan koordinasi relawan.</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="data-grid">
+                    <div class="data-item"><i class="fas fa-id-card me-2"></i> Identitas Lengkap</div>
+                    <div class="data-item"><i class="fas fa-phone me-2"></i> Kontak WhatsApp</div>
+                    <div class="data-item"><i class="fas fa-map-marker-alt me-2"></i> Domisili</div>
+                    <div class="data-item"><i class="fas fa-tools me-2"></i> Skill Spesifik</div>
+                    <div class="data-item"><i class="fas fa-history me-2"></i> Pengalaman</div>
+                    <div class="data-item"><i class="fas fa-heart me-2"></i> Motivasi</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <h2 class="fw-bold mb-4">Siap Mengukir Sejarah Baru?</h2>
+        <a href="{{ url('/profil') }}" class="btn-register-main">
+            <i class="fas fa-edit me-2"></i> Mulai Pendaftaran Sekarang
+        </a>
+        <p class="privacy-note">
+            Dengan mengklik tombol di atas, Anda setuju untuk memberikan data yang benar. 
+            Sistem kami akan mengarahkan Anda ke halaman pengisian profil lengkap.
+        </p>
+    </div>
+</div>
+
+<footer class="py-5 text-center bg-light border-top">
+    <div class="container">
+        <p class="text-muted small">© 2026 Yayasan Relawan Plus Indonesia. <br> Standar Operasional Pendaftaran Relawan v2.0 - Terverifikasi Kemensos RI.</p>
+    </div>
+</footer>
 
 @endsection

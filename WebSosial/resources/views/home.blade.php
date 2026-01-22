@@ -1,255 +1,280 @@
 @extends('layout.style')
 
 @section('konten')
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 <style>
-    /* 1. Slider & Hero Section HD */
+    :root {
+        --brand-blue: #0288d1;
+        --brand-cyan: #26c6da;
+        --soft-bg: #f8fafc;
+        --text-dark: #1e293b;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        color: var(--text-dark); 
+        overflow-x: hidden; 
+        background-color: #fff;
+    }
+
+    /* 1. Hero Section - Deep Correlation Visual */
     .slider-container {
         position: relative;
         width: 100%;
-        height: 85vh;
+        height: 90vh;
+        min-height: 600px;
         overflow: hidden;
-        margin-top: -20px;
+        background: #000;
     }
 
     .slide {
         position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
+        inset: 0;
+        /* Gambar Anak Indonesia: Fokus pada masa depan yang ingin diselamatkan */
+        background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2000') center/cover no-repeat;
+        transform: scale(1.05); 
+        animation: subtleZoom 20s infinite alternate;
     }
 
-    .current-slide { opacity: 1; }
-
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    @keyframes subtleZoom {
+        from { transform: scale(1); }
+        to { transform: scale(1.1); }
     }
 
+    /* Overlay lebih gelap di sisi kiri agar teks putih tajam */
     .overlay {
         position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.45);
+        inset: 0;
+        background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
     }
 
     .slide-content {
         position: absolute;
-        top: 50%; left: 10%;
+        top: 50%; left: 8%;
         transform: translateY(-50%);
         color: white;
-        max-width: 800px;
+        max-width: 750px;
         z-index: 2;
     }
 
-    .slide-content h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        line-height: 1.2;
-        margin-bottom: 20px;
-        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    .btn-action {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 35px;
+        background: var(--brand-cyan);
+        color: white;
+        border-radius: 100px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: var(--transition);
+        box-shadow: 0 10px 20px rgba(38, 198, 218, 0.3);
+    }
+
+    .btn-action:hover {
+        transform: translateY(-3px);
+        background: #1eb1c4;
+        color: white;
+        box-shadow: 0 15px 30px rgba(38, 198, 218, 0.5);
     }
 
     /* 2. Expertise Section */
-    .expertise-section { padding: 80px 20px; background: #fcfcfc; text-align: center; }
-    .expertise-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 40px auto;
-    }
-
+    .expertise-section { padding: 100px 0; background: var(--soft-bg); }
+    
     .expertise-card {
         background: white;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        transition: 0.3s;
+        height: 100%;
+        transition: var(--transition);
+        border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .expertise-card:hover { transform: translateY(-10px); }
-    .expertise-card img { width: 100%; height: 220px; object-fit: cover; }
-    .expertise-text { padding: 25px; text-align: left; }
-
-    /* 3. Berita Terkini (Metode Scroll Josjis) */
-    .layanan-berita {
-        padding: 60px 0;
-        background: #fff;
+    .expertise-card:hover { 
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
+    /* 3. News Horizontal Scroll Styling */
     .scroll-container {
         display: flex;
         overflow-x: auto;
         gap: 25px;
-        padding: 20px 40px;
-        scroll-behavior: smooth;
-        scrollbar-width: none; /* Hilangkan scrollbar Firefox */
+        padding: 20px 0 40px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--brand-cyan) transparent;
     }
 
-    .scroll-container::-webkit-scrollbar {
-        display: none; /* Hilangkan scrollbar Chrome/Safari */
-    }
+    .scroll-container::-webkit-scrollbar { height: 6px; }
+    .scroll-container::-webkit-scrollbar-thumb { background: var(--brand-cyan); border-radius: 10px; }
 
     .kolom-berita {
         min-width: 320px;
-        max-width: 320px;
+        flex: 0 0 auto;
         background: white;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-        transition: 0.3s;
+        border-radius: 15px;
         text-decoration: none;
         color: inherit;
         border: 1px solid #eee;
+        transition: var(--transition);
     }
 
-    .kolom-berita:hover {
-        transform: scale(1.03);
-        box-shadow: 0 12px 35px rgba(38, 198, 218, 0.2);
-        border-color: #26c6da;
+    /* 4. Mitra Strategis */
+    .mitra-item img {
+        height: 70px;
+        filter: grayscale(20%);
+        transition: var(--transition);
+        opacity: 0.8;
     }
 
-    .berita-img {
-        width: 100%;
-        height: 180px;
-        object-fit: cover;
-    }
-
-    .berita-info {
-        padding: 20px;
-    }
-
-    .berita-info h2 {
-        font-size: 1.2rem;
-        color: #0277bd;
-        margin-bottom: 10px;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .berita-info h3 {
-        font-size: 0.9rem;
-        color: #888;
-        font-weight: normal;
-    }
-
-    /* 4. CTA & Mitra */
-    .cta-banner {
-        background: linear-gradient(135deg, #0288d1, #26c6da);
-        padding: 80px 20px;
-        margin: 50px 20px;
-        border-radius: 30px;
-        text-align: center;
-        color: white;
-    }
-
-    .mitra-logos {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 40px;
-        padding: 40px;
-        filter: grayscale(100%);
-        opacity: 0.5;
+    .mitra-item:hover img { 
+        filter: grayscale(0%);
+        opacity: 1;
+        transform: scale(1.05);
     }
 </style>
 
-{{-- Hero Slider --}}
+{{-- Hero Section --}}
 <section class="slider-container">
-    <div class="slider-wrapper">
-        <div class="slide current-slide">
-            <img src="https://images.unsplash.com/photo-1527137341203-b82736173004?auto=format&fit=crop&q=80&w=2000" alt="Kampanye">
-            <div class="overlay"></div>
-            <div class="slide-content">
-                <h1>Mahalkan Rokok! Selamatkan 268.000 Nyawa</h1>
-                <p>Ubah kebiasaan buruk menjadi investasi gizi keluarga untuk Indonesia bebas stunting.</p>
-                <a href="#" class="cta-button" style="display:inline-block; padding: 14px 30px; background:#26c6da; color:white; border-radius:50px; text-decoration:none; font-weight:bold; margin-top:20px;">Lihat Selengkapnya</a>
+    <div class="slide"></div>
+    <div class="overlay"></div>
+    <div class="container-fluid h-100">
+        <div class="slide-content animate__animated animate__fadeInLeft">
+            <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm animate__animated animate__pulse animate__infinite">
+                <i class="fas fa-exclamation-circle me-2"></i>DARURAT GIZI NASIONAL 2026
+            </span>
+            <h1 class="display-3 fw-800" style="line-height: 1.1;">
+                Mahalkan Rokok!<br>
+                <span style="color: var(--brand-cyan);">Selamatkan Nyawa</span> Anak Bangsa.
+            </h1>
+            <p class="lead mb-4 opacity-100 fw-bold" style="max-width: 600px; text-shadow: 1px 1px 10px rgba(0,0,0,0.5);">
+                Mengalihkan belanja rokok ke protein adalah investasi nyata untuk memutus rantai stunting. Mari wujudkan Indonesia Emas tanpa asap rokok.
+            </p>
+            <div class="d-flex gap-3 flex-wrap">
+                <a href="/aktivitas-saya" class="btn-action">
+                    Ambil Bagian Sekarang <i class="fas fa-heart ms-2"></i>
+                </a>
+                <a href="#tentang" class="btn btn-outline-light rounded-pill px-4 d-flex align-items-center">
+                    Kenapa Ini Penting?
+                </a>
             </div>
         </div>
     </div>
 </section>
 
 {{-- Expertise --}}
-<section class="expertise-section">
-    <h2 style="font-weight: 800; margin-bottom: 10px;">Apa Saja Yang Kami Lakukan?</h2>
-    <div class="expertise-container">
-        <div class="expertise-card">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1000" alt="Program">
-            <div class="expertise-text">
-                <h3 style="color:#0288d1">Kegiatan Sosial</h3>
-                <p>Meningkatkan kualitas hidup masyarakat melalui program pemberdayaan yang inklusif.</p>
-            </div>
+<section class="expertise-section" id="tentang">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-800" data-aos="fade-up">Langkah Konkret Kami</h2>
+            <div class="mx-auto" style="width: 60px; height: 4px; background: var(--brand-cyan); border-radius: 2px;"></div>
         </div>
-        <div class="expertise-card">
-            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=1000" alt="Kesehatan">
-            <div class="expertise-text">
-                <h3 style="color:#0288d1">Sistem Kesehatan</h3>
-                <p>Mendukung transformasi layanan primer agar merata untuk seluruh lapisan masyarakat.</p>
+        
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="expertise-card text-center">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800" class="w-100" style="height:220px; object-fit:cover;" alt="Volunteer">
+                    <div class="p-4">
+                        <h4 class="fw-bold" style="color:var(--brand-blue)">Edukasi Keluarga</h4>
+                        <p class="text-muted">Mendampingi orang tua untuk memprioritaskan gizi protein hewani di atas pengeluaran rokok.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="expertise-card">
-            <img src="{{ asset('images/gambar_1.jpg') }}" alt="Kaji & Evaluasi">
-            <div class="expertise-text">
-                <h3 style="color:#0288d1">Kaji & Evaluasi</h3>
-                <p>Analisis mendalam terhadap isu sosial demi solusi yang berkelanjutan dan tepat sasaran.</p>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="expertise-card text-center">
+                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800" class="w-100" style="height:220px; object-fit:cover;" alt="Donasi">
+                    <div class="p-4">
+                        <h4 class="fw-bold" style="color:var(--brand-blue)">Intervensi Gizi</h4>
+                        <p class="text-muted">Menyalurkan bantuan pangan sehat langsung ke daerah dengan angka stunting tertinggi.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="expertise-card text-center">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800" class="w-100" style="height:220px; object-fit:cover;" alt="Intervensi">
+                    <div class="p-4">
+                        <h4 class="fw-bold" style="color:var(--brand-blue)">Advokasi Kebijakan</h4>
+                        <p class="text-muted">Mendorong regulasi kenaikan harga rokok demi perlindungan daya beli pangan bergizi.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-{{-- Berita (Metode Scroll Horizontal Josjis) --}}
-<section class="layanan-berita">
-    <h1 style="text-align: center; font-weight: 800; margin-bottom: 10px;">Berita Terkini</h1>
-    <p style="text-align: center; color: #777; margin-bottom: 30px;">Geser ke samping untuk melihat berita lainnya</p>
+{{-- Berita --}}
+<section class="py-5" style="background: white;">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2 class="fw-800 mb-0">Wawasan Terbaru</h2>
+                <p class="text-muted mb-0">Informasi dan data terkini dari lapangan</p>
+            </div>
+            <a href="/berita" class="text-decoration-none fw-bold" style="color: var(--brand-blue);">Lihat Semua Berita <i class="fas fa-chevron-right ms-1"></i></a>
+        </div>
 
-    <div class="scroll-container">
-        @php
-            $defaultImages = [
-                'gambar 2.jpg',
-                'gambar 3.jpg',
-                'gambar 4.jpg',
-                'gambar_1.jpg',
-                'ti.jpg'
-            ];
-        @endphp
-        @foreach($beritas as $berita)
-            @php
-                $defaultImage = $defaultImages[$loop->index % count($defaultImages)];
-            @endphp
-            <a href="/berita/{{ $berita['slug'] }}" class="kolom-berita">
-                {{-- Gambar berita josjis --}}
-                <img src="{{ $berita['gambar'] ?? asset('images/' . $defaultImage) }}"
-                     alt="{{ $berita['judul'] }}" class="berita-img">
-                <div class="berita-info">
-                    <h2>{{ $berita['judul'] }}</h2>
-                    <h3>✍️ {{ $berita['penulis'] }}</h3>
-                </div>
-            </a>
-        @endforeach
+        <div class="scroll-container px-2">
+            @php $defaultImages = ['gambar 2.jpg', 'gambar 3.jpg', 'gambar 4.jpg', 'gambar_1.jpg']; @endphp
+            @if(isset($beritas))
+                @foreach($beritas as $berita)
+                    <a href="/berita/{{ $berita['slug'] }}" class="kolom-berita">
+                        <img src="{{ $berita['gambar'] ?? asset('images/' . $defaultImages[$loop->index % 4]) }}" class="w-100" style="height:180px; object-fit:cover; border-radius: 15px 15px 0 0;" alt="News">
+                        <div class="p-4">
+                            <h6 class="fw-bold mb-3" style="line-height:1.5;">{{ Str::limit($berita['judul'], 60) }}</h6>
+                            <div class="d-flex align-items-center text-muted small">
+                                <img src="https://ui-avatars.com/api/?name={{ $berita['penulis'] }}&background=random" class="rounded-circle me-2" width="20" alt="Author">
+                                {{ $berita['penulis'] }}
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            @endif
+        </div>
     </div>
 </section>
 
 {{-- CTA --}}
-<section class="cta-banner">
-    <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 15px;">Ayo Jadi Relawan!</h2>
-    <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 30px; opacity: 0.9;">Kehadiranmu adalah harapan bagi mereka. Bergabunglah sekarang dan jadilah bagian dari perubahan besar.</p>
-    <a href="/profil" style="display: inline-block; background: white; color: #0288d1; padding: 15px 40px; font-size: 1.1rem; font-weight: bold; border-radius: 50px; text-decoration: none; transition: 0.3s;">Daftar Menjadi Relawan</a>
-</section>
+<div class="container py-5">
+    <section class="cta-banner" data-aos="zoom-in" style="background: linear-gradient(135deg, #01579b, #00acc1); border-radius: 30px; padding: 60px 20px;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center text-white">
+                <h2 class="display-5 fw-800 mb-3">Jadilah Bagian dari Solusi</h2>
+                <p class="lead mb-4 opacity-90">Suara Anda menentukan masa depan anak-anak Indonesia. Mari bergerak bersama untuk generasi bebas stunting.</p>
+                <a href="/profil" class="btn btn-light btn-lg rounded-pill px-5 fw-bold text-primary shadow-lg transition">Gabung Relawan</a>
+            </div>
+        </div>
+    </section>
+</div>
 
-{{-- Mitra --}}
-<section style="text-align: center; padding: 60px 20px;">
-    <h2 style="color: #444; margin-bottom: 30px;">Mitra Strategis</h2>
-    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto;">
-        <img src="{{ asset('images/pmi.jpg') }}" alt="Mitra 4" style="height: 100px; width: auto; border-radius: 10px;">
-        <img src="{{ asset('images/unimus.jpg') }}" alt="Mitra 4" style="height: 100px; width: auto; border-radius: 10px;">
-        <img src="{{ asset('images/ti2.jpg') }}" alt="Mitra 5" style="height: 100px; width: auto; border-radius: 10px;">
+{{-- Mitra Strategis --}}
+<section class="py-5 bg-white">
+    <div class="container text-center">
+        <p class="text-uppercase tracking-widest fw-bold text-muted small mb-5">KERJA SAMA STRATEGIS</p>
+        <div class="row align-items-center justify-content-center g-5">
+            <div class="col-6 col-md-2 mitra-item" data-aos="fade-up">
+                <img src="{{ asset('images/pmi.jpg') }}" class="img-fluid" alt="PMI">
+            </div>
+            <div class="col-6 col-md-2 mitra-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ asset('images/unimus.jpg') }}" class="img-fluid" alt="UNIMUS">
+            </div>
+            <div class="col-6 col-md-2 mitra-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="{{ asset('images/ti2.jpg') }}" class="img-fluid" alt="Transparency International">
+            </div>
+        </div>
     </div>
 </section>
 
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({ 
+        duration: 800, 
+        once: true,
+        easing: 'ease-in-out'
+    });
+</script>
 @endsection

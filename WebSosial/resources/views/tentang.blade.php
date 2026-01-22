@@ -1,279 +1,233 @@
 @extends('layout.style')
 
 @section('konten')
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-    /* 1. Konsistensi Hero Section */
-    .hero-tentang-revised {
-        padding: 130px 20px 80px 20px;
-        background: linear-gradient(135deg, #0288d1, #26c6da);
-        text-align: center;
-        color: white;
+    :root {
+        --brand-primary: #0288d1;
+        --brand-secondary: #26c6da;
+        --brand-dark: #0f172a;
+        --soft-bg: #f1f5f9;
+        --white: #ffffff;
     }
 
-    .hero-tentang-revised h1 {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin-bottom: 15px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    body { 
+        background-color: var(--white); 
+        font-family: 'Inter', sans-serif; 
+        color: var(--brand-dark);
+        line-height: 1.6;
     }
 
-    /* 2. Intro Section */
-    .section-padding { padding: 80px 20px; }
-    .bg-light { background: #f8f9fa; }
-
-    .intro-text {
-        max-width: 900px;
-        margin: 0 auto;
-        text-align: center;
-        line-height: 1.8;
-        font-size: 1.1rem;
-        color: #555;
-    }
-
-    .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        color: #333;
-        margin-bottom: 40px;
+    /* --- HERO: PRE-LAUNCH MODE --- */
+    .about-hero {
         position: relative;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 136, 209, 0.8) 100%), 
+                    url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        padding: 200px 0 160px;
+        border-radius: 0 0 80px 80px;
+        color: var(--white);
+        text-align: center;
     }
 
-    .section-title::after {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 5px;
-        background: #26c6da;
-        margin: 15px auto 0;
-        border-radius: 10px;
-    }
-
-    /* 3. Visi Misi Cards */
-    .grid-two {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 30px;
-        max-width: 1100px;
-        margin: 0 auto;
-    }
-
-    .card-modern {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease;
-    }
-
-    .card-modern:hover { transform: translateY(-10px); }
-
-    .icon-box {
-        font-size: 3rem;
-        margin-bottom: 20px;
-        display: inline-block;
-    }
-
-    /* 4. Timeline */
-    .timeline-container {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-    }
-
-    .timeline-container::before {
-        content: '';
-        position: absolute;
-        left: 20px;
-        height: 100%;
-        width: 4px;
-        background: #e0e0e0;
-    }
-
-    .timeline-entry {
-        position: relative;
-        margin-bottom: 50px;
-        padding-left: 60px;
-    }
-
-    .timeline-entry::before {
-        content: '';
-        position: absolute;
-        left: 11px;
-        top: 0;
-        width: 22px;
-        height: 22px;
-        background: #26c6da;
-        border: 4px solid white;
-        border-radius: 50%;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    /* 5. Team Grid */
-    .grid-team {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .member-card {
-        background: white;
-        border-radius: 20px;
+    /* --- PROGRESS TRACKER (NEW) --- */
+    .launch-progress {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         padding: 30px;
-        text-align: center;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    }
-
-    .member-img {
-        width: 100px; height: 100px;
-        background: #f0f0f0;
-        border-radius: 50%;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
-    }
-
-    /* 6. Achievement Grid */
-    .grid-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        text-align: center;
-    }
-
-    .stat-number {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #0288d1;
-    }
-
-    /* 7. CTA Section */
-    .cta-revised {
-        background: linear-gradient(135deg, #0288d1, #26c6da);
-        color: white;
-        text-align: center;
-        padding: 80px 20px;
         border-radius: 30px;
-        margin: 40px 20px;
+        max-width: 600px;
+        margin: 40px auto 0;
     }
 
-    .btn-white {
-        background: white;
-        color: #0288d1;
-        padding: 12px 35px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-block;
-        margin: 10px;
+    .progress-bar-custom {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 15px;
+    }
+
+    .progress-fill {
+        width: 75%; /* Sesuaikan persentase progress saat ini */
+        height: 100%;
+        background: var(--brand-secondary);
+        box-shadow: 0 0 15px var(--brand-secondary);
+        animation: loadingShift 2s infinite ease-in-out;
+    }
+
+    @keyframes loadingShift {
+        0% { opacity: 0.8; }
+        50% { opacity: 1; }
+        100% { opacity: 0.8; }
+    }
+
+    /* --- VISION CARD --- */
+    .vision-card {
+        background: var(--white);
+        border-radius: 40px;
+        box-shadow: 0 40px 100px -20px rgba(0,0,0,0.1);
+        margin-top: -80px;
+        padding: 60px;
+        border: 1px solid #f1f5f9;
+    }
+
+    /* --- TEAM SECTION --- */
+    .team-card-premium {
+        background: var(--soft-bg);
+        padding: 35px 20px;
+        border-radius: 30px;
         transition: 0.3s;
+        text-align: center;
+        border: 1px solid transparent;
+    }
+    .team-card-premium:hover {
+        background: white;
+        border-color: var(--brand-primary);
+        transform: translateY(-5px);
+    }
+    .team-img-circle {
+        width: 110px;
+        height: 110px;
+        border-radius: 30px; /* Modern square-round */
+        margin-bottom: 20px;
+        object-fit: cover;
     }
 
-    .btn-white:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    /* --- NOTIFICATION BOX --- */
+    .notify-me {
+        background: var(--brand-dark);
+        color: white;
+        border-radius: 40px;
+        padding: 50px;
+        margin-top: 100px;
+    }
 </style>
 
-<div class="hero-tentang-revised">
-    <div class="hero-content">
-        <h1>Tentang Kami</h1>
-        <p>Aksi Nyata, Harapan Baru, dan Kepedulian untuk Indonesia</p>
+<section class="about-hero">
+    <div class="container">
+        <div class="badge rounded-pill px-4 py-2 mb-3 bg-info text-dark fw-bold">
+            <i class="fas fa-tools me-2"></i> WEB DEVELOPMENT IN PROGRESS
+        </div>
+        <h1 class="display-3 fw-800 mb-3">Membangun Fondasi <br> Kebaikan Digital.</h1>
+        <p class="lead opacity-75 mx-auto" style="max-width: 650px;">
+            Yayasan Relawan Plus Indonesia sedang mempersiapkan infrastruktur sistem terbaik untuk memastikan transparansi filantropi di tahun 2026.
+        </p>
+        
+        <div class="launch-progress">
+            <div class="d-flex justify-content-between small fw-bold">
+                <span>Persiapan Sistem</span>
+                <span>75% Selesai</span>
+            </div>
+            <div class="progress-bar-custom">
+                <div class="progress-fill"></div>
+            </div>
+            <p class="mt-3 small opacity-75 mb-0">Target Launching: Kuartal Pertama 2026</p>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-11">
+            <div class="vision-card">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-6">
+                        <h6 class="text-primary fw-bold text-uppercase">Fase Pembentukan</h6>
+                        <h2 class="fw-bold mb-4">Integritas Sedang <br> Dirancang.</h2>
+                        <p class="text-muted mb-4">
+                            Relawan+ saat ini berada dalam tahap finalisasi administrasi hukum dan pengembangan dashboard pelaporan publik. Kami memastikan bahwa saat sistem ini dibuka, setiap rupiah yang Anda titipkan dapat dipantau secara langsung.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <div class="p-3 bg-light rounded-4 border flex-fill text-center">
+                                <h5 class="fw-bold mb-0">2026</h5>
+                                <small class="text-muted">Tahun Operasi</small>
+                            </div>
+                            <div class="p-3 bg-light rounded-4 border flex-fill text-center">
+                                <h5 class="fw-bold mb-0">DPP</h5>
+                                <small class="text-muted">Pusat Koordinasi</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-4 border rounded-5 bg-soft">
+                            <h6 class="fw-bold mb-3"><i class="fas fa-list-check me-2 text-primary"></i> Checklist Progress:</h6>
+                            <div class="d-flex mb-3 opacity-100">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>Pendaftaran Yayasan (Kemenkumham)</span>
+                            </div>
+                            <div class="d-flex mb-3 opacity-100">
+                                <i class="fas fa-check-circle text-success me-3 fs-5"></i>
+                                <span>Pembentukan Struktur Inti DPP</span>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <i class="fas fa-spinner fa-spin text-primary me-3 fs-5"></i>
+                                <span>Pengembangan Web & Database (In-Progress)</span>
+                            </div>
+                            <div class="d-flex opacity-50">
+                                <i class="far fa-circle me-3 fs-5"></i>
+                                <span>Open Recruitment Relawan Nasional</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="py-5 mt-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Tim Inisiator</h2>
+            <p class="text-muted">Para profesional dibalik pembentukan Yayasan Relawan Plus.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            @php
+                $team = [
+                    ['name' => 'Hammam Al Kamil', 'role' => 'Founder / Ketua', 'bg' => '0288d1'],
+                    ['name' => 'Jenny Wulandari', 'role' => 'Bendahara Umum', 'bg' => '26c6da'],
+                    ['name' => 'Dian Fadhilah', 'role' => 'Sekretaris', 'bg' => '1e293b'],
+                    ['name' => 'Muhammad Aqil', 'role' => 'Ops Manager', 'bg' => '0288d1'],
+                    ['name' => 'Surya Arif', 'role' => 'Kemitraan', 'bg' => '26c6da']
+                ];
+            @endphp
+            @foreach($team as $member)
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="team-card-premium">
+                    <img src="https://ui-avatars.com/api/?name={{ urlencode($member['name']) }}&background={{ $member['bg'] }}&color=fff&size=200" class="team-img-circle">
+                    <h6 class="fw-bold mb-1 small">{{ $member['name'] }}</h6>
+                    <span class="text-primary" style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase;">{{ $member['role'] }}</span>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="notify-me">
+        <div class="row align-items-center text-center text-lg-start">
+            <div class="col-lg-8">
+                <h3 class="fw-bold mb-3">Dapatkan Notifikasi Saat Kami Launching</h3>
+                <p class="opacity-75 mb-0">Jadilah bagian dari 1.000 relawan pertama yang akan mengubah wajah filantropi Indonesia.</p>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0 text-lg-end">
+                <a href="mailto:info@relawanplus.or.id" class="btn btn-info btn-lg px-5 rounded-pill fw-bold text-dark">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
-<section class="section-padding">
-    <div class="intro-text">
-        <h2 style="color: #333; margin-bottom: 20px;">Siapa Kami?</h2>
-        <p>
-            Kami adalah organisasi sosial nirlaba yang berdedikasi untuk memberikan dampak positif bagi masyarakat Indonesia. 
-            Sejak didirikan pada tahun 2012, kami telah melayani lebih dari <strong>5000 penerima manfaat</strong> melalui berbagai program sosial, 
-            pendidikan, kesehatan, dan pemberdayaan ekonomi.
+<footer class="py-5 text-center mt-5 border-top">
+    <div class="container">
+        <p class="text-muted small">
+            <strong>Relawan+ Indonesia</strong><br>
+            Sedang dalam tahap pengembangan teknis & legalitas.<br>
+            © 2026 Yayasan Relawan Plus Indonesia.
         </p>
     </div>
-</section>
-
-<section class="section-padding bg-light">
-    <h2 class="section-title">Visi & Misi Kami</h2>
-    <div class="grid-two">
-        <div class="card-modern">
-            <span class="icon-box">🎯</span>
-            <h3>Visi</h3>
-            <p><strong>"Masyarakat Indonesia yang Sejahtera, Mandiri, dan Bermartabat"</strong></p>
-            <p style="font-size: 0.95rem; color: #777;">Menciptakan ekosistem di mana setiap individu memiliki akses penuh terhadap pendidikan, kesehatan, dan peluang ekonomi yang adil.</p>
-        </div>
-        <div class="card-modern">
-            <span class="icon-box">💪</span>
-            <h3>Misi</h3>
-            <ul style="text-align: left; color: #555; padding-left: 20px;">
-                <li>Pendidikan berkualitas untuk anak pra-sejahtera.</li>
-                <li>Layanan kesehatan gratis di daerah terpencil.</li>
-                <li>Pemberdayaan ekonomi melalui UMKM.</li>
-                <li>Mobilisasi relawan untuk aksi sosial nyata.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding">
-    <h2 class="section-title">Perjalanan Kami</h2>
-    <div class="timeline-container">
-        <div class="timeline-entry">
-            <h3>2012 - Awal Perjuangan</h3>
-            <p>Dimulai oleh sekelompok mahasiswa dengan bimbingan belajar gratis untuk 20 anak di ruang terbuka.</p>
-        </div>
-        <div class="timeline-entry">
-            <h3>2016 - Program Kesehatan</h3>
-            <p>Memulai vaksinasi dan pemeriksaan kesehatan gratis di berbagai desa terpencil.</p>
-        </div>
-        <div class="timeline-entry">
-            <h3>2024 - Masa Depan</h3>
-            <p>Terdaftar resmi sebagai Yayasan dengan 156 relawan aktif di 15 Kota/Kabupaten.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section-padding bg-light">
-    <div class="grid-stats">
-        <div><div class="stat-number">5.2K+</div><p>Penerima Manfaat</p></div>
-        <div><div class="stat-number">156</div><p>Relawan Aktif</p></div>
-        <div><div class="stat-number">15</div><p>Kota Jangkauan</p></div>
-        <div><div class="stat-number">50K+</div><p>Pohon Ditanam</p></div>
-    </div>
-</section>
-
-<section class="section-padding">
-    <h2 class="section-title">Tim Kepemimpinan</h2>
-    <div class="grid-team" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 900px; margin: 0 auto 50px;">
-        <div class="member-card">
-            <div class="member-img">👨‍💼</div>
-            <h4>Hammam Al Kamil </h4>
-            <p style="color: #0288d1; font-weight: bold;">Ketua</p>
-        </div>
-        <div class="member-card">
-            <div class="member-img">👩‍💻</div>
-            <h4>Jenny Wulandari </h4>
-            <p style="color: #0288d1; font-weight: bold;">Kepala Admin</p>
-        </div>
-        <div class="member-card">
-            <div class="member-img">👩‍⚕️</div>
-            <h4>Dian Fadhilah </h4>
-            <p style="color: #0288d1; font-weight: bold;">Kepala Kesehatan</p>
-        </div>
-    </div>
-    <div class="grid-team" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 600px; margin: 0 auto;">
-        <div class="member-card">
-            <div class="member-img">🧑‍💻</div>
-            <h4>Arif Surya Saputra </h4>
-            <p style="color: #0288d1; font-weight: bold;">Kepala Teknologi</p>
-        </div>
-        <div class="member-card">
-            <div class="member-img">👷‍♂️</div>
-            <h4>Muhammad Aqil Miqdadu Fatih</h4>
-            <p style="color: #0288d1; font-weight: bold;">Kepala Relawan</p>
-        </div>
-    </div>
-</section>
+</footer>
 
 @endsection
