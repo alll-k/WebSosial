@@ -13,13 +13,15 @@ class PendaftaranRelawan extends Model
 
     // Daftarkan semua kolom agar bisa disimpan oleh Laravel
     protected $fillable = [
-        'nama_lengkap', 
-        'email', 
-        'no_wa', 
-        'alamat', 
-        'alasan', 
-        'tempat_lahir', 
-        'tanggal_lahir', 
-        'kegiatan'
-    ];
+    'nama_lengkap',
+    'email',
+    'no_wa',
+    'alamat',
+    'alasan',
+    'tempat_lahir',
+    'tanggal_lahir',
+    'kegiatan',
+    'status'
+];
+
 }
