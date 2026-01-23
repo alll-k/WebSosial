@@ -150,17 +150,17 @@
                 $jamAttr = $isoKegiatan ? 'jam' : null;
                 $deskAttr = $isoKegiatan ? 'deskripsi' : 'deskripsi';
             @endphp
-            
+
             {{-- Tampilkan Foto/Gambar --}}
             @if(isset($item->{$fotoAttr}) && $item->{$fotoAttr})
                 <img src="{{ asset('storage/' . $item->{$fotoAttr}) }}" alt="{{ $item->nama }}" class="card-image" style="height: 200px; object-fit: cover;">
             @else
                 <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=500" alt="{{ $item->nama }}" class="card-image">
             @endif
-            
+
             <div class="card-body">
                 <h3>{{ $item->nama }}</h3>
-                
+
                 {{-- Tampilkan data kegiatan jika tipe kegiatan --}}
                 @if($isoKegiatan)
                     @php
