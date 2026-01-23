@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AktifitasController;
 use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\PendaftaranController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ Route::get('/jadwal', fn () => view('jadwal'));
 Route::get('/program', fn () => view('program'));
 Route::get('/tentang', fn () => view('tentang'));
 Route::get('/prokegi', fn () => view('prokegi'));
-Route::get('/daftar', fn () => view('daftar')); 
+Route::get('/daftar', fn () => view('daftar'));
 Route::get('/gabung', fn () => view('gabung'));
 Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
 
@@ -29,7 +30,7 @@ Route::get('/berita/{slug}', [BeritaController::class, 'tampilberita']);
 Route::middleware('guest')->group(function () {
     // Menampilkan Halaman Login
     Route::get('/login', fn () => view('login'))->name('login');
-    
+
     // Proses Login & Register
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
@@ -41,17 +42,45 @@ Route::middleware('guest')->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware('auth')->group(function () {
-    
-    // --- KHUSUS ROLE ADMIN (Role 1) ---
-    Route::get('/admin/dashboard', function () {
-        if (auth()->user()->role != 1) {
-            return redirect('/home')->with('error', 'Anda tidak memiliki akses admin.');
-        }
-        return view('admin.dashboarda'); 
-    })->name('admin.dashboard');
 
-    // Route untuk Form Update Password di Dashboard Admin
-    Route::post('/admin/update-password', [AuthController::class, 'updatePassword'])->name('password.update');
+    // --- KHUSUS ROLE ADMIN (Role 1) ---
+    Route::middleware('admin')->group(function () {
+        Route::get('/admin/dashboard', function () {
+            return view('admin.dashboarda');
+        })->name('admin.dashboard');
+
+        Route::post('/admin/update-password', [AuthController::class, 'updatePassword'])->name('password.update');
+
+        // Admin Routes - Berita
+        Route::prefix('admin/berita')->name('admin.berita.')->group(function () {
+            Route::get('/', [AdminController::class, 'beritaIndex'])->name('index');
+            Route::get('/create', [AdminController::class, 'beritaCreate'])->name('create');
+            Route::post('/', [AdminController::class, 'beritaStore'])->name('store');
+            Route::get('/{berita}/edit', [AdminController::class, 'beritaEdit'])->name('edit');
+            Route::put('/{berita}', [AdminController::class, 'beritaUpdate'])->name('update');
+            Route::delete('/{berita}', [AdminController::class, 'beritaDestroy'])->name('destroy');
+        });
+
+        // Admin Routes - Kegiatan
+        Route::prefix('admin/kegiatan')->name('admin.kegiatan.')->group(function () {
+            Route::get('/', [AdminController::class, 'kegiatanIndex'])->name('index');
+            Route::get('/create', [AdminController::class, 'kegiatanCreate'])->name('create');
+            Route::post('/', [AdminController::class, 'kegiatanStore'])->name('store');
+            Route::get('/{kegiatan}/edit', [AdminController::class, 'kegiatanEdit'])->name('edit');
+            Route::put('/{kegiatan}', [AdminController::class, 'kegiatanUpdate'])->name('update');
+            Route::delete('/{kegiatan}', [AdminController::class, 'kegiatanDestroy'])->name('destroy');
+        });
+
+        // Admin Routes - Program
+        Route::prefix('admin/program')->name('admin.program.')->group(function () {
+            Route::get('/', [AdminController::class, 'programIndex'])->name('index');
+            Route::get('/create', [AdminController::class, 'programCreate'])->name('create');
+            Route::post('/', [AdminController::class, 'programStore'])->name('store');
+            Route::get('/{program}/edit', [AdminController::class, 'programEdit'])->name('edit');
+            Route::put('/{program}', [AdminController::class, 'programUpdate'])->name('update');
+            Route::delete('/{program}', [AdminController::class, 'programDestroy'])->name('destroy');
+        });
+    });
 
     // --- KHUSUS ROLE USER/RELAWAN (Role 0) ---
     Route::get('/home', [AktifitasController::class, 'index'])->name('home');

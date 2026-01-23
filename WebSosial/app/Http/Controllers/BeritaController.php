@@ -9,17 +9,20 @@ class BeritaController extends Controller
 {
 
    public function berita () {
+    $beritas = Berita::latest()->get();
 
-    return view ('home', [
-        "title" => "Berita",
-        "beritas" => Berita ::ambilberita(),
+    return view('home', [
+        'title' => 'Berita',
+        'beritas' => $beritas,
     ]);
 }
 
     public function tampilberita ($slugp) {
 
-    return view ('beritaa', [
-        "new_berita" => Berita::cariberita($slugp),
+    $berita = Berita::where('slug', $slugp)->firstOrFail();
+
+    return view('beritaa', [
+        'new_berita' => $berita,
     ]);
 }
 

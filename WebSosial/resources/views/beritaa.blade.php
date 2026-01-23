@@ -11,10 +11,13 @@
 
 @if($new_berita)
 <div class="hero">
+    @if($new_berita->gambar)
+        <img src="{{ asset('storage/' . $new_berita->gambar) }}" alt="{{ $new_berita->judul }}" style="max-width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px;">
+    @endif
     <article>
-        <h1>{{ $new_berita["judul"] }}</h1>
-        <h3>{{ $new_berita["penulis"] }}</h3>
-        <p>{{ $new_berita["konten"] }}</p>
+        <h1>{{ $new_berita->judul }}</h1>
+        <h3>{{ $new_berita->penulis }}</h3>
+        <p>{{ $new_berita->konten }}</p>
     </article>
 </div>
 @else

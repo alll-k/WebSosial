@@ -15,10 +15,10 @@
         --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    body { 
-        font-family: 'Plus Jakarta Sans', sans-serif; 
-        color: var(--text-dark); 
-        overflow-x: hidden; 
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--text-dark);
+        overflow-x: hidden;
         background-color: #fff;
     }
 
@@ -37,7 +37,7 @@
         inset: 0;
         /* Gambar Anak Indonesia: Fokus pada masa depan yang ingin diselamatkan */
         background: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2000') center/cover no-repeat;
-        transform: scale(1.05); 
+        transform: scale(1.05);
         animation: subtleZoom 20s infinite alternate;
     }
 
@@ -85,7 +85,7 @@
 
     /* 2. Expertise Section */
     .expertise-section { padding: 100px 0; background: var(--soft-bg); }
-    
+
     .expertise-card {
         background: white;
         border-radius: 20px;
@@ -95,7 +95,7 @@
         border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .expertise-card:hover { 
+    .expertise-card:hover {
         transform: translateY(-12px);
         box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
@@ -132,7 +132,7 @@
         opacity: 0.8;
     }
 
-    .mitra-item:hover img { 
+    .mitra-item:hover img {
         filter: grayscale(0%);
         opacity: 1;
         transform: scale(1.05);
@@ -174,7 +174,7 @@
             <h2 class="fw-800" data-aos="fade-up">Langkah Konkret Kami</h2>
             <div class="mx-auto" style="width: 60px; height: 4px; background: var(--brand-cyan); border-radius: 2px;"></div>
         </div>
-        
+
         <div class="row g-4">
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="expertise-card text-center">
@@ -222,13 +222,13 @@
             @php $defaultImages = ['gambar 2.jpg', 'gambar 3.jpg', 'gambar 4.jpg', 'gambar_1.jpg']; @endphp
             @if(isset($beritas))
                 @foreach($beritas as $berita)
-                    <a href="/berita/{{ $berita['slug'] }}" class="kolom-berita">
-                        <img src="{{ $berita['gambar'] ?? asset('images/' . $defaultImages[$loop->index % 4]) }}" class="w-100" style="height:180px; object-fit:cover; border-radius: 15px 15px 0 0;" alt="News">
+                    <a href="/berita/{{ $berita->slug }}" class="kolom-berita">
+                        <img src="{{ $berita->gambar ? asset('storage/' . $berita->gambar) : asset('images/' . $defaultImages[$loop->index % 4]) }}" class="w-100" style="height:180px; object-fit:cover; border-radius: 15px 15px 0 0;" alt="News">
                         <div class="p-4">
-                            <h6 class="fw-bold mb-3" style="line-height:1.5;">{{ Str::limit($berita['judul'], 60) }}</h6>
+                            <h6 class="fw-bold mb-3" style="line-height:1.5;">{{ Str::limit($berita->judul, 60) }}</h6>
                             <div class="d-flex align-items-center text-muted small">
-                                <img src="https://ui-avatars.com/api/?name={{ $berita['penulis'] }}&background=random" class="rounded-circle me-2" width="20" alt="Author">
-                                {{ $berita['penulis'] }}
+                                <img src="https://ui-avatars.com/api/?name={{ $berita->penulis }}&background=random" class="rounded-circle me-2" width="20" alt="Author">
+                                {{ $berita->penulis }}
                             </div>
                         </div>
                     </a>
@@ -271,8 +271,8 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    AOS.init({ 
-        duration: 800, 
+    AOS.init({
+        duration: 800,
         once: true,
         easing: 'ease-in-out'
     });
