@@ -50,7 +50,7 @@
     <div class="header-right flex items-center gap-4">
         @auth
             <span class="text-white text-sm font-semibold">👋 {{ Auth::user()->name }}</span>
-            <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
+            <form action="{{ url('/logout') }}" method="POST" class="m-0 p-0">
                 @csrf
                 <button type="submit" class="donasi-btn bg-red-600 hover:bg-red-700">Keluar</button>
             </form>
@@ -61,7 +61,7 @@
     </div>
 </header>
 
-<div class="content-wrapper"> 
+<div class="content-wrapper">
     @yield('konten')
 </div>
 

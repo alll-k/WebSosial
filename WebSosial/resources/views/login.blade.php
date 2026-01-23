@@ -33,13 +33,13 @@
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Alamat Email</label>
-                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" 
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
                            id="email" placeholder="name@example.com" value="{{ old('email') }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" name="password" class="form-control" id="password" 
+                    <input type="password" name="password" class="form-control" id="password"
                            placeholder="Masukkan password" required>
                 </div>
 
@@ -49,7 +49,7 @@
             </form>
 
             <div class="text-center mt-4">
-                <p class="small text-muted">Belum punya akun? <a href="{{ route('relawan.daftar') }}" class="text-decoration-none">Daftar Relawan</a></p>
+                <p class="small text-muted">Belum punya akun? <a href="/daftar" class="text-decoration-none">Daftar Akun</a></p>
                 <a href="/" class="small text-decoration-none">← Kembali ke Beranda</a>
             </div>
         </div>

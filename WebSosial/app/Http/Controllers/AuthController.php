@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller {
-    
+
     /**
      * Menangani proses login user dan admin.
      */
@@ -20,13 +20,13 @@ class AuthController extends Controller {
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            
+
             // Logika Pembeda Role: 1 untuk Admin, 0 untuk User/Relawan
             if (Auth::user()->role == 1) {
                 // Dipaksa (Explicit) ke dashboard admin tanpa 'intended' agar tidak balik ke home
                 return redirect('/admin/dashboard');
             }
-            
+
             // Untuk user biasa, silakan gunakan intended atau redirect ke home
             return redirect()->intended('/home');
         }
@@ -54,7 +54,7 @@ class AuthController extends Controller {
             'role' => 0, // Otomatis menjadi relawan biasa
         ]);
 
-        return redirect('/profil')->with('success', 'Akun relawan berhasil dibuat! Silakan masuk.');
+        return redirect('/login')->with('success', 'Akun berhasil dibuat! Silakan login untuk melanjutkan.');
     }
 
     /**
@@ -86,7 +86,7 @@ class AuthController extends Controller {
      */
     public function logout(Request $request) {
         Auth::logout();
-        
+
         // Membersihkan sesi agar benar-benar keluar
         $request->session()->invalidate();
         $request->session()->regenerateToken();
