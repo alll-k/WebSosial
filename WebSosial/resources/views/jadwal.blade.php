@@ -52,9 +52,9 @@
     /* Grid Kartu */
     .grid-kegiatan {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 30px;
-        max-width: 1200px;
+        max-width: 1400px;
         margin: 0 auto;
     }
 
@@ -135,48 +135,57 @@
 </div>
 
 <section class="kegiatan-section">
-    <h2 class="section-title">📅 Daftar Kegiatan Terdekat</h2>
+    <h2 class="section-title">📅 Daftar Kegiatan & Program Terdekat</h2>
 
     <div class="grid-kegiatan">
-
+        @forelse($daftarKegiatan as $item)
         <div class="card-kegiatan">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=500" alt="Bakti Sosial" class="card-image">
+            @php
+                // Tentukan apakah ini kegiatan atau program
+                $isoKegiatan = $item instanceof \App\Models\Kegiatan;
+                $fotoAttr = $isoKegiatan ? 'foto' : 'gambar';
+                $namaAttr = $isoKegiatan ? 'nama' : 'nama';
+                $lokasiAttr = $isoKegiatan ? 'lokasi' : null;
+                $tanggalAttr = $isoKegiatan ? 'tanggal' : null;
+                $jamAttr = $isoKegiatan ? 'jam' : null;
+                $deskAttr = $isoKegiatan ? 'deskripsi' : 'deskripsi';
+            @endphp
+            
+            {{-- Tampilkan Foto/Gambar --}}
+            @if(isset($item->{$fotoAttr}) && $item->{$fotoAttr})
+                <img src="{{ asset('storage/' . $item->{$fotoAttr}) }}" alt="{{ $item->nama }}" class="card-image" style="height: 200px; object-fit: cover;">
+            @else
+                <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=500" alt="{{ $item->nama }}" class="card-image">
+            @endif
+            
             <div class="card-body">
-                <h3>Bakti Sosial Pembagian Sembako</h3>
-                <div class="info-item"><span>📅</span> 12 Desember 2025</div>
-                <div class="info-item"><span>⏰</span> 08.00 – 12.00 WIB</div>
-                <div class="info-item"><span>📍</span> Desa Mekarsari</div>
-                <a href="/pendaftaran-relawan?kegiatan=Bakti%20Sosial%20Pembagian%20Sembako&tanggal=12%20Desember%202025&jam=08:00%20-%2012:00&lokasi=Desa%20Mekarsari" class="btn-wa">
-                    Daftar Sekarang
-                </a>
+                <h3>{{ $item->nama }}</h3>
+                
+                {{-- Tampilkan data kegiatan jika tipe kegiatan --}}
+                @if($isoKegiatan)
+                    @php
+                        $tanggalFormatted = \Carbon\Carbon::parse($item->tanggal)->format('d F Y');
+                    @endphp
+                    <div class="info-item"><span>📅</span> {{ $tanggalFormatted }}</div>
+                    <div class="info-item"><span>⏰</span> {{ $item->jam }}</div>
+                    <div class="info-item"><span>📍</span> {{ $item->lokasi }}</div>
+                    <a href="/pendaftaran-relawan?kegiatan={{ urlencode($item->nama) }}&tanggal={{ urlencode($tanggalFormatted) }}&jam={{ urlencode($item->jam) }}&lokasi={{ urlencode($item->lokasi) }}" class="btn-wa">
+                        Daftar Sekarang
+                    </a>
+                @else
+                    {{-- Tampilkan data program --}}
+                    <p style="font-size: 0.95rem; color: #666; line-height: 1.5;">{{ Str::limit($item->deskripsi, 100) }}</p>
+                    <div class="info-item"><span>🎯</span> {{ $item->tujuan }}</div>
+                    <a href="/pendaftaran-relawan?program={{ urlencode($item->nama) }}" class="btn-wa">
+                        Daftar Sekarang
+                    </a>
+                @endif
             </div>
         </div>
+        @empty
+        <p style="grid-column: 1/-1; text-align: center; padding: 40px;">Tidak ada kegiatan atau program yang tersedia saat ini. Silakan cek kembali nanti.</p>
+        @endforelse
 
-        <div class="card-kegiatan">
-            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=500" alt="Kesehatan" class="card-image">
-            <div class="card-body">
-                <h3>Pemeriksaan Kesehatan Gratis</h3>
-                <div class="info-item"><span>📅</span> 15 Desember 2025</div>
-                <div class="info-item"><span>⏰</span> 09.00 – 13.00 WIB</div>
-                <div class="info-item"><span>📍</span> Kecamatan Andir</div>
-                <a href="/pendaftaran-relawan?kegiatan=Pemeriksaan%20Kesehatan%20Gratis&tanggal=15%20Desember%202025&jam=09:00%20-%2013:00&lokasi=Kecamatan%20Andir" class="btn-wa">
-                    Daftar Sekarang
-                </a>
-            </div>
-        </div>
-
-        <div class="card-kegiatan">
-            <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&q=80&w=500" alt="Mengajar" class="card-image">
-            <div class="card-body">
-                <h3>Pengajaran Anak-anak (Trauma Healing)</h3>
-                <div class="info-item"><span>📅</span> 20 Desember 2025</div>
-                <div class="info-item"><span>⏰</span> 13.00 – 16.00 WIB</div>
-                <div class="info-item"><span>📍</span> Rumah Belajar Cibeunying</div>
-                <a href="/pendaftaran-relawan?kegiatan=Pengajaran%20Anak-anak%20(Trauma%20Healing)&tanggal=20%20Desember%202025&jam=13:00%20-%2016:00&lokasi=Rumah%20Belajar%20Cibeunying" class="btn-wa">
-                    Daftar Sekarang
-                </a>
-            </div>
-        </div>
 
 
     </div>

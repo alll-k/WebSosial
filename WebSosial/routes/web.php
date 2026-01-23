@@ -7,6 +7,7 @@ use App\Http\Controllers\AktifitasController;
 use App\Http\Controllers\DonasiController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JadwalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use App\Http\Controllers\AdminController;
 |--------------------------------------------------------------------------
 */
 Route::get('/', [BeritaController::class, 'berita']);
-Route::get('/jadwal', fn () => view('jadwal'));
+Route::get('/jadwal', [JadwalController::class, 'index']);
 Route::get('/program', fn () => view('program'));
 Route::get('/tentang', fn () => view('tentang'));
 Route::get('/prokegi', fn () => view('prokegi'));
